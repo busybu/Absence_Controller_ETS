@@ -1,0 +1,33 @@
+header{
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+header .box-img{
+    display: flex;
+}
+header .img-header{
+    height: 1vh;
+    width: 100%;
+    object-fit: cover;
+}
+.header-content h1{
+    font-size: 2rem;
+    margin: 1rem;
+}
+.header-content{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.textgradient {
+    display: inline;
+    background: linear-gradient(to right, #D91424, #8C3A87, #034C8C, #04C4D9, #03A65A);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 700;
+}
