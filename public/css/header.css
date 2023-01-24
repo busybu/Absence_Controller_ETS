@@ -31,3 +31,15 @@ header .img-header{
     background-clip: text;
     font-weight: 700;
 }
+
+footer{
+    height: 5vh;
+    background-color:rgb(33, 33, 36);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer h3{
+    font-size: 1rem;
+    color: aliceblue;
+}
