@@ -25,7 +25,7 @@ body {
     background-origin: border-box;
     background-clip: padding-box, border-box;
     padding: 1rem;
-    width: 80%;
+    width: 90%;
     padding: 2.5rem 1rem;
 }
 
@@ -49,4 +49,40 @@ main{
     align-items: center;
     justify-content: center;
     flex-flow: row wrap;
+    padding-top: 0.8rem ;
+}
+
+.form-control{
+    border-radius: 3rem;
+}
+
+label{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+select{
+    width: 100%;
+    border-color: #c1c1c1;
+    border-radius: 1rem;
+    justify-items: center;
+    text-align: center;
+    height: 2rem;
+}
+
+.campo-descricao{
+    height: 4rem;
+}
+
+.margin-extra{
+    margin-top: 2rem;
+}
+
+.periodo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin: 0;
 }
