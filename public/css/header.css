@@ -21,7 +21,7 @@ header .img-header{
     height: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between
 }
 .textgradient {
     display: inline;
@@ -42,4 +42,8 @@ footer{
 footer h3{
     font-size: 1rem;
     color: aliceblue;
+}
+.seta-header{
+    width: 3rem;
+    margin-right: 1rem;
 }
