@@ -4,10 +4,16 @@
 .card-body{
     display: flex;
     justify-content:space-between;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
 }
 .buttons-card img{
     width: 2rem;
 }
+.buttons-card img:hover{
+    transition: 0.5s;
+    transform: scale(1.2);
+}
+
 .card{
     margin-top: 1rem;
     margin-bottom: 1rem;
