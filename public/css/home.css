@@ -1,3 +1,20 @@
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    margin: 0 2.5% 0 2%;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
 main{
     height: 90vh;
     display: flex;
