@@ -19,6 +19,11 @@
 .foto-card{
     width: 3rem;
 }
+
+.navbar-nav img{
+    width: 2rem;
+}
+
 .foto-card img{
     width: 100%;
     object-fit: cover;

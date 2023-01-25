@@ -12,6 +12,7 @@
     <link href="/public/css/home.css" rel="stylesheet">
     <link href="/public/css/global.css" rel="stylesheet">
     <link href="/public/css/login-adm.css" rel="stylesheet">
+    <link href="/public/css/index.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
@@ -23,14 +24,14 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow ">
         <div class="container-fluid" style="align-items: center">
             <h5 class="my-0 mr-md-auto font-weight-normal">
-                
+
                 <a href="/" class="textgradient">Bosch</a>
                 <span style="color:#595959; font-weight: 500;">|</span>
                 <span style="color:#595959; font-weight: 600;">ETS</span>
             </h5>
-            <div class="navbar-nav">
+            <!-- <div class="navbar-nav">
                 <a href="../views/login-adm.html"><img src="../../public/img/adm-link.svg" alt="Login Adm"></a>
-            </div>
+            </div> -->
         </div>
     </nav>
     <main>
@@ -41,26 +42,29 @@
             <form action="" method="post" class="row g-3">
                 <!-- enctype="multipart/form-data" -->
                 <div class="col-12">
-                    <input type="text" class="form-control" name="edv" placeholder="EDV">
+                    <input type="text" class="form-control" name="nome" placeholder="Nome">
                 </div>
-                <div class="col-12">
-                    <input type="password" class="form-control" name="senha" placeholder="Senha">
+                <label>Periodo</label>
+                <div class="col-12 periodo">
+                    <input type="date" class="form-control" name="inicio" style="margin-right: 0.5rem;">
+                    <input type="date" class="form-control" name="fim">
                 </div>
                 <div class="col-12">
                     <input type="submit" class="btn btn-outline-dark button" value="Entrar"></button>
                 </div>
             </form>
             <!-- fazer css link -->
-            <a href="cad_adm.html">Clique para criar login</a> 
+            <a href="cad_adm.html">Já possui uma conta? Clique para fazer login</a>
         </div>
     </main>
     <div class="footer">
         <div class="container-fluid">
-                <h3>Sponsored by ETS</h3>
+            <h3>Sponsored by ETS</h3>
         </div>
-    </div <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous">
-    </script>
+        </script>
 </body>
 
 </html>

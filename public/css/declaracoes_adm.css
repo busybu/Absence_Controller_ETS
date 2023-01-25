@@ -3,6 +3,10 @@
     padding: 1rem;
 }
 
+.navbar-nav img{
+    width: 2rem;
+}
+
 .space-select{
     margin: 0.5rem;
 }
