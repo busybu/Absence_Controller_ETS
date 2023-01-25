@@ -8,15 +8,21 @@
     margin: 0 0 0 1rem;
 }
 
-footer {
-    height: 5vh;
-    background-color: rgb(33, 33, 36);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.footer {
+    background-color: #000000;
+    color: #F2FFFC;
+    padding:  0.5rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    opacity: 0.80;
+    box-sizing: border-box;
+    text-align: center;
+    height: 2.5em;
+
 }
 
-footer h3 {
+.footer h3 {
     font-size: 1rem;
     color: aliceblue;
 }
@@ -24,4 +30,30 @@ footer h3 {
 .seta-header {
     width: 3rem;
     margin-right: 1rem;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    margin: 0 2.5% 0 2%;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin-bottom: 10%;
+    height: 100%;
 }

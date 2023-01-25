@@ -15,23 +15,27 @@ body {
     align-items: center;
 }
 
-main{
-    height: 90vh;
+main {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    padding: 1rem;
+    margin: 1.5rem 0 1rem 0;
 }
-button{
+
+button {
     width: 80%;
     height: 10vh;
 }
-.button-align{
+
+.button-align {
     display: flex;
     justify-content: center;
     margin: 2rem;
     width: 100%;
 }
-h2{
+
+h2 {
     padding-top: 0.5rem;
 }
