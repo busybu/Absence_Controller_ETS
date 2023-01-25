@@ -2,6 +2,11 @@
     margin-top: 1.5rem;
     padding: 1rem;
 }
+
+.navbar-nav img{
+    width: 2rem;
+}
+
 .foto-card img{
     width: 3rem;
 }
