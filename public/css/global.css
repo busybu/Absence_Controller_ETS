@@ -26,6 +26,7 @@
     font-size: 1rem;
     color: aliceblue;
 }
+<<<<<<< HEAD
 
 .seta-header {
     width: 3rem;
@@ -56,4 +57,8 @@ main {
     flex-flow: row wrap;
     margin-bottom: 10%;
     height: 100%;
+=======
+a img{
+    width: 10vw;
+>>>>>>> 615701e5160c63fcc0258868c8cdc41b223259cb
 }
