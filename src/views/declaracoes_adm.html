@@ -13,29 +13,54 @@
 </head>
 
 <body>
-    <header>
-        <div class="box-img">
-            <img src="/public/img/header_Bosch.jfif" class="img-header">
+    <div style="background-image: url(../../public/img/header_Bosch.jfif); width: 100%; height: 15px;"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow ">
+        <div class="container-fluid" style="align-items: center">
+            <h5 class="my-0 mr-md-auto font-weight-normal">
+                <a href="/" class="textgradient">Bosch</a>
+                <span style="color:#595959; font-weight: 500;">|</span>
+                <span style="color:#595959; font-weight: 600;">ETS</span>
+            </h5>
+            <div class="navbar-nav">
+                <a href="../views/login-adm.html"><img src="/public/img/seta.png" alt="Login Adm"></a>
+            </div>
         </div>
-        <div class="header-content">
-            <h1 class="my-0 mr-md-auto font-weight-normal">
-                <a href="/" class="textgradient">Bosch </a>|
-                <span style="color:#595959; font-weight: 500;">ETS </span>
-            </h1>
-            <img src="/public/img/seta.png" alt="" class="seta-header">
-        </div>
-    </header>
-
+    </nav>
     <main>
         <div class="form-declaracoes">
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Selecione a turma</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+            <div class="selects">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected disabled>Turma</option>
+                    <option value="1">Mecatrônica 2022</option>
+                    <option value="2">TDS 2022</option>
+                </select>
 
-            <div class="card">
+                <select class="form-select" aria-label="Default select example">
+                    <option selected disabled>Situação</option>
+                    <option value="1">Pendente</option>
+                    <option value="2">Concluída</option>
+                    <option value="3">Rejeitada</option>
+                </select>
+    
+            </div>
+            
+
+            <div class="card" style="background: rgb(255, 243, 189);">
+                <div class="card-body" >
+                    <div class="data-card">
+                        <h5>24/01/2023</h5>
+                    </div>
+                    <div class="nome-card">
+                        <h5>Fulaninho</h5>
+                    </div>
+                    <div class="buttons-card">
+                        <img src="/public/img/more.png" alt="">
+                        <img src="/public/img/check.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="background: rgb(202, 255, 189);">
                 <div class="card-body">
                     <div class="data-card">
                         <h5>24/01/2023</h5>
@@ -50,22 +75,7 @@
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-body">
-                    <div class="data-card">
-                        <h5>24/01/2023</h5>
-                    </div>
-                    <div class="nome-card">
-                        <h5>Fulaninho</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="/public/img/more.png" alt="">
-                        <img src="/public/img/check.png" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="card">
+            <div class="card" style="background: rgb(255, 189, 189);">
                 <div class="card-body">
                     <div class="data-card">
                         <h5>24/01/2023</h5>
