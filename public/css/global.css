@@ -8,7 +8,7 @@
     margin: 0 0 0 1rem;
 }
 
-footer {
+.footer {
     background: #000000;
     padding:  0.5rem;
     width: 100%;
@@ -19,7 +19,7 @@ footer {
 
 }
 
-footer h3 {
+.footer h3 {
     font-size: 1rem;
     color: aliceblue;
 }
@@ -51,8 +51,6 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-flow: row wrap;
     margin-bottom: 10%;
     height: 100%;
-
 }

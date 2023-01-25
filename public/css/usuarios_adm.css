@@ -1,6 +1,10 @@
 .title{
     width: 100%;
 }
+main{
+    display: flex;
+    flex-direction: column;
+}
 .title h1{
     display: flex;
     justify-content: flex-start;
@@ -64,4 +68,5 @@
 }
 .nome-card h5{
     margin: auto;
+    margin-left: 1rem;
 }
