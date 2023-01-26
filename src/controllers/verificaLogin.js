@@ -1,16 +1,19 @@
 const administrador = require('../model/Administrador');
+const database = require('../config/db');
+
 
 module.exports = {
     async verificaLogin(req, res) {
-        const dados = req.body;
-        const edv = dados.edv; 
-        const user = await administrador.findOne({ where: { edv } });
+        let edv = req.body.edv;
+        let senha = req.body.senha;
 
-        if (!user) {
-            return res.status(401).json({ error: 'User does not exist.' });
-        }
-        // if (!(await user.checkPassword(senha))) {
-        //     return res.status(401).json({ error: 'Invalid password.' });
-        // }
+        const user = await administrador.findOne({
+            where: { edv: edv, senha: senha }
+        })
+        res.render('/home_adm_master', {user});
+         
     }
+
+    
+    
 }

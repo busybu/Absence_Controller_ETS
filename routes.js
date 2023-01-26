@@ -23,7 +23,7 @@ route.get('/', home.pagInicialGet);
 route.get('/cadastro', home.pagCadastro);
 
 route.get('/login', home.pagLogin);
-route.get('/verificalogin', verificaLogin.verificaLogin)
+route.post('/verificalogin', verificaLogin.verificaLogin)
 
 
 

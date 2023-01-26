@@ -28,7 +28,6 @@ module.exports = {
         res.render('../views/index');
     },
     async pagLogin(req, res) {
-
         res.render('../views/login-adm')
     },
     async pagCadastro(req, res) {
