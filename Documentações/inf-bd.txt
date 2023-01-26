@@ -2,3 +2,6 @@ porta: 49775
 adm: adm_absence_controll
 senha: mesma senha do usuario sala digital
 
+porta gabi: 1433 
+*mesmo usuario e senha
+
