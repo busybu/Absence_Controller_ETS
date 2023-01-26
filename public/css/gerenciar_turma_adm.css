@@ -1,0 +1,42 @@
+
+main{
+    display: flex;
+    flex-direction: column;
+}
+.create-class{
+    width: 90%;
+}
+.create-content{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.create-content h5{
+    color: aliceblue;
+}
+.create-content img{
+    width: 2rem;
+    object-fit: contain;
+}
+.buttons-card{
+    margin-left: 4rem;
+}
+.buttons-card img{
+    width: 2rem;
+    margin-left: 1rem;
+}
+.buttons-card img:hover{
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+.form-classes{
+    width: 90%;
+}
+.card{
+    margin-top: 1rem;
+}
+.card-body{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

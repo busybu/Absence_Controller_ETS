@@ -18,6 +18,9 @@
     height: 2.5em;
 
 }
+.navbar-nav img{
+  width: 2rem;
+}
 
 .footer h3 {
     font-size: 1rem;
