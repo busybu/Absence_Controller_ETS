@@ -9,7 +9,8 @@ const administrador = database.define('Administrador', {
         type: Sequelize.STRING(10),
         autoIncrement: false,
         allowNull: false,
-        primaryKey: true
+        primaryKey: true,
+        unique: true
     },
     Nome: {
         type: Sequelize.STRING(255),

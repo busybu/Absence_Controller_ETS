@@ -2,15 +2,15 @@ const administrador = require('../model/Administrador');
 
 module.exports = {
     async verificaLogin(req, res) {
+        const dados = req.body;
+        const edv = dados.edv; 
+        const user = await administrador.findOne({ where: { edv } });
 
-        const parametro = req.params.id;
-
-        const administrador = await administrador.findByPk(parametro, {
-            raw: true,
-            attributes: ['EDV', 'Nome', 'Senha']
-        });
-
-        res.render('../views/home_adm_master', {});
-
+        if (!user) {
+            return res.status(401).json({ error: 'User does not exist.' });
+        }
+        // if (!(await user.checkPassword(senha))) {
+        //     return res.status(401).json({ error: 'Invalid password.' });
+        // }
     }
 }
