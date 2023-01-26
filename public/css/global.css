@@ -55,3 +55,30 @@ main {
     width: 3rem;
     margin-right: 1rem;
 }
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+    margin: 0 2.5% 0 2%;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin-bottom: 10%;
+    height: 100%;
+
+}
