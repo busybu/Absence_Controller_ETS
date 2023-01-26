@@ -20,7 +20,7 @@ main {
     justify-content: center;
     flex-flow: row wrap;
     padding: 1rem;
-    margin: 10% 0 15vh 0;
+    margin: 3% 0 15vh 0;
 }
 
 .form-card {
