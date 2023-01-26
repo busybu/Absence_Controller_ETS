@@ -5,17 +5,24 @@ const turma = require('../model/Turma');
 
 module.exports = {
     async pagDeclaracoesAdm(req, res) {
-        const declaracoes = await declaracao.findAll({
+        const declaracoes = await formulario.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio']
         })
-        res.render('../views/declaracoes_adm', { declaracoes })
+        res.render('../views/declaracoes_adm', { declaracoes, id: '', turmas: '' })
     },
-    async pagDeclaracoesAdmPost(req, res){
+    async pagDeclaracoesAdmPost(req, res) {
         const id = req.body.nome
-        const turmas = await turmas.findAll({
-            //precisa criar ainda a model de turma
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome']
         })
+        const declaracoes = await formulario.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio']
+        })
+        res.render('../views/declaracoes_adm', { turmas, declaracoes, id })
+
     },
     async pagInicialGet(req, res) {
         res.render('../views/index');
