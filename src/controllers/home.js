@@ -28,7 +28,12 @@ module.exports = {
         res.render('../views/index');
     },
     async pagLogin(req, res) {
-        res.render('../views/login-adm')
+
+        const adm = await administrador.findAll({
+            raw: true,
+            attributes: ['EDV', 'Nome']
+        })
+        res.render('../views/login-adm', {adm})
     },
     async pagCadastro(req, res) {
         res.render('../views/cad_adm')

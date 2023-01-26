@@ -1,7 +1,4 @@
-const administrador = require('../model/Administrador');
 const formulario = require('../model/Formulario');
-const turma = require('../model/Turma');
-
 
 module.exports = {
     async insertJustificativa(req, res) {

@@ -15,12 +15,16 @@ route.post('/createFormulario', multer(config).single('foto'), CadastroJustifica
 const home = require('./src/controllers/home');
 const cadastroTurma = require("./src/controllers/cadastroTurma");
 const cadastroJustificativa = require("./src/controllers/cadastroJustificativa");
+const verificaLogin  = require("./src/controllers/verificaLogin");
 
 // Iniciando as rotas
 
 route.get('/', home.pagInicialGet);
-route.get('/login', home.pagLogin);
 route.get('/cadastro', home.pagCadastro);
+
+route.get('/login', home.pagLogin);
+route.get('/verificalogin', verificaLogin.verificaLogin)
+
 
 
 route.get('/home', home.pagHomeAdm);
@@ -31,8 +35,6 @@ route.get('/declaracoes', home.pagDeclaracoesAdm);
 
 route.get('/criar_turma', home.pagCriarTurmaAdm);
 route.post('/createTurma', cadastroTurma.insertTurma);
-
-
 route.get('/gerenciar_turmas', home.pagTurmasAdm);
 
 
