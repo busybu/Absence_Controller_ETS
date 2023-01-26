@@ -13,19 +13,32 @@ route.post('/createFormulario', multer(config).single('foto'), CadastroJustifica
 
 // Importando os Controllers
 const home = require('./src/controllers/home');
+const cadastroTurma = require("./src/controllers/cadastroTurma");
+const cadastroJustificativa = require("./src/controllers/cadastroJustificativa");
 
 // Iniciando as rotas
 
 route.get('/', home.pagInicialGet);
 route.get('/login', home.pagLogin);
 route.get('/cadastro', home.pagCadastro);
+
+
 route.get('/home', home.pagHomeAdm);
+route.post('/createFormulario', cadastroJustificativa.insertJustificativa);
+
 route.get('/declaracoes', home.pagDeclaracoesAdm);
+
+
 route.get('/criar_turma', home.pagCriarTurmaAdm);
+route.post('/createTurma', cadastroTurma.insertTurma);
+
+
 route.get('/gerenciar_turmas', home.pagTurmasAdm);
+
+
 route.get('/gerenciar_usuarios', home.pagUsuariosAdm);
 
-route.post('/createFormulario', CadastroJustificativa.insertJustificativa);
+
 
 // route.post('/', home.pagIniciaPost);
 
