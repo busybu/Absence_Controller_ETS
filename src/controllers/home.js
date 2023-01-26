@@ -1,3 +1,8 @@
+const administrador = require('../model/Administrador');
+const formulario = require('../model/Formulario');
+const turma = require('../model/Turma');
+
+
 module.exports = {
     async pagInicialGet(req, res) {
         res.render('../views/index');

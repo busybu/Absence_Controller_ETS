@@ -1,4 +1,5 @@
-porta: 49775
+
+porta manu (pc sala digital): 49775
 adm: adm_absence_controll
 senha: mesma senha do usuario sala digital
 

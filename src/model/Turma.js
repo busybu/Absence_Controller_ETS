@@ -1,3 +1,4 @@
+const { DATEONLY } = require('sequelize');
 const Sequelize = require('sequelize');
 const database = require('../config/db');
 
@@ -12,7 +13,7 @@ const turma = database.define('Turma', {
     },
     Nome: {
         type: Sequelize.STRING(100),
-        allowNull: false, G
+        allowNull: false, 
     },
     Inicio: {
         type: DATEONLY,
