@@ -1,5 +1,8 @@
-const declaracao = require('../model/formulario')
-const turma = require('../model/turmas')
+const administrador = require('../model/Administrador');
+const formulario = require('../model/Formulario');
+const turma = require('../model/Turma');
+
+
 module.exports = {
     async pagDeclaracoesAdm(req, res) {
         const declaracoes = await declaracao.findAll({
