@@ -2,6 +2,9 @@ const administrador = require('../model/Administrador');
 
 module.exports = {
     async verificaLogin(req, res) {
+
+        console.log(req.body);
+
         const dados = req.body;
         const edv = dados.edv; 
         const user = await administrador.findOne({ where: { edv } });
