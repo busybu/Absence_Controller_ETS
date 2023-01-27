@@ -22,12 +22,12 @@ const administrador = database.define('Administrador', {
     },
     Master: {
         type: BOOLEAN,
-        allowNull: false,
+        allowNull: true,
         defaultValue: false
     },
     Ativo: {
         type: BOOLEAN,
-        allowNull: false,
+        allowNull: true,
         defaultValue: false
     }
     // Colocar foto futuramente

@@ -16,11 +16,15 @@ const home = require('./src/controllers/home');
 const cadastroTurma = require("./src/controllers/cadastroTurma");
 const cadastroJustificativa = require("./src/controllers/cadastroJustificativa");
 const verificaLogin  = require("./src/controllers/verificaLogin");
+const cadastroUsuario = require("./src/controllers/cadastroUsuario");
 
 // Iniciando as rotas
 
 route.get('/', home.pagInicialGet);
+
+
 route.get('/cadastro', home.pagCadastro);
+route.post('/cadastroUsuario', cadastroUsuario.insertUser);
 
 route.get('/login', home.pagLogin);
 route.post('/verificalogin', verificaLogin.verificaLogin)
