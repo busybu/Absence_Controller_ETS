@@ -40,13 +40,13 @@
             </div>
             <form action="/verificalogin" method="post" class="row g-3">
                 <div class="col-12">
-                    <input type="text" class="form-control" name="edv" placeholder="EDV">
+                    <input type="text" class="form-control" name="edv" id="edv" placeholder="EDV">
                 </div>
                 <div class="col-12">
-                    <input type="password" class="form-control" name="senha" placeholder="Senha">
+                    <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha">
                 </div>
                 <div class="col-12">
-                    <input type="submit" class="btn btn-outline-dark button" value="Entrar">
+                    <input type="submit" onclick="logar()" class="btn btn-outline-dark button" value="Entrar">
                 </div>
             </form>
             <div class="col-12 link">
