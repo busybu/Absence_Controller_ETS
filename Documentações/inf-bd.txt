@@ -2,7 +2,10 @@
 porta manu (pc sala digital): 49775
 adm: adm_absence_controll
 senha: mesma senha do usuario sala digital
-
+--------------------------------------------------------------
+porta manu (pc pessoal): 49675
+*mesmo usuario e senha
+--------------------------------------------------------------
 porta gabi: 1433 
 *mesmo usuario e senha
 

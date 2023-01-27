@@ -1,3 +1,114 @@
+@media (min-width: 900px) {
+
+
+    .container,
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        margin: 0 2.5% 0 2%;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        align-items: center;
+    }
+
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        padding: 1rem;
+        margin: 3% 0 15vh 0;
+    }
+
+    .form-card {
+        word-break: break-all;
+        text-align: center;
+        background-color: #FFFFFF;
+        border: double 3PX transparent;
+        border-radius: 1rem;
+        background-image: linear-gradient(white, white), radial-gradient(circle at left, #D91424, #8C3A87, #034C8C, #04C4D9, #03A65A);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        padding: 1rem;
+        width: 50%;
+        padding: 2.5rem 1rem;
+    }
+
+    .title-card {
+        width: 50%;
+        height: 3rem;
+        background: #FDFCFC;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        margin: -4rem auto 0 auto;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 500;
+    }
+
+    .button {
+        border-radius: 10rem;
+        color: #000000;
+        font-size: 0.7rem;
+        font-weight: bold;
+        padding: 1px 20px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        height: 100%;
+        width: 30%;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .form-control {
+        border-radius: 3rem;
+    }
+
+    label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    select {
+        width: 100%;
+        border-color: #c1c1c1;
+        border-radius: 1rem;
+        justify-items: center;
+        text-align: center;
+        height: 2.5rem;
+    }
+
+    .campo-descricao {
+        height: 5rem;
+    }
+
+    #margin-extra {
+        margin-top: 2.5rem;
+    }
+
+    .periodo {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+        margin: 0;
+    }
+
+}
+
+@media (max-width: 900px) {
+
 .container,
 .container-fluid,
 .container-lg,
@@ -20,7 +131,7 @@ main {
     justify-content: center;
     flex-flow: row wrap;
     padding: 1rem;
-    margin: 3% 0 15vh 0;
+    margin: 3% 0 30vh 0;
 }
 
 .form-card {
@@ -33,7 +144,7 @@ main {
     background-origin: border-box;
     background-clip: padding-box, border-box;
     padding: 1rem;
-    width: 90%;
+    width: 95%;
     padding: 2.5rem 1rem;
 }
 
@@ -52,13 +163,13 @@ main {
 }
 
 .button {
-	border-radius: 4rem;
-	color: #000000;
-	font-size: 0.7rem;
-	font-weight: bold;
-	padding: 1px 20px;
-	letter-spacing: 1px;
-	text-transform: uppercase;
+    border-radius: 4rem;
+    color: #000000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 1px 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     height: 100%;
     width: 80%;
 }
@@ -67,7 +178,7 @@ p {
     margin: 0;
 }
 
-.form-control{
+.form-control {
     border-radius: 3rem;
 }
 
@@ -100,4 +211,4 @@ select {
     flex-wrap: nowrap;
     justify-content: space-around;
     margin: 0;
-}
+}}
