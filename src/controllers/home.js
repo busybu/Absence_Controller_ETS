@@ -56,7 +56,7 @@ module.exports = {
         res.render('../views/login-adm')
     },
     async pagCadastro(req, res) {
-        res.render('../views/cad_adm')
+        res.render('../views/cad_adm', { nome: '', senha: '', edv: ''})
     },
     async pagHomeAdm(req, res) {
         res.render('../views/home_adm_master')
