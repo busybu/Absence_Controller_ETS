@@ -31,7 +31,7 @@ route.get('/home', home.pagHomeAdm);
 route.post('/createFormulario', cadastroJustificativa.insertJustificativa);
 
 route.get('/declaracoes', home.pagDeclaracoesAdm);
-
+route.post('/declaracoes',home.pagDeclaracoesAdmPost);
 
 route.get('/criar_turma', home.pagCriarTurmaAdm);
 route.post('/createTurma', cadastroTurma.insertTurma);

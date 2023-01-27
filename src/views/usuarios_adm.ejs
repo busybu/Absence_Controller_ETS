@@ -17,7 +17,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow ">
         <div class="container-fluid" style="align-items: center">
             <h5 class="my-0 mr-md-auto font-weight-normal">
-                
+
                 <a href="/" class="textgradient">Bosch</a>
                 <span style="color:#595959; font-weight: 500;">|</span>
                 <span style="color:#595959; font-weight: 600;">ETS</span>
@@ -33,117 +33,26 @@
             <hr>
         </div>
         <div class="form-usuarios">
-            <div class="card">
-                <div class="card-body">
-                    <div class="foto-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-                    </div>
-                    <div class="nome-card">
-                        <h5>Ciclano</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="foto-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-                    </div>
-                    <div class="nome-card">
-                        <h5>Ciclano</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
+            <% for (let i=0; i<administradores.length;i++) {%>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="foto-card">
+                            <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
+                        </div>
+                        <div class="nome-card">
+                            <h5>
+                                <%=administradores[i].Nome%>
+                            </h5>
+                        </div>
+                        <div class="buttons-card">
+                            <img src="../img/next.png" alt="">
+                            <img src="../img/more.png" alt="">
+                            <img src="../img/check.png" alt="">
+                        </div>
                     </div>
                 </div>
-                
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="foto-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-                    </div>
-                    <div class="nome-card">
-                        <h5>Ciclano</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-                
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="foto-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-                    </div>
-                    <div class="nome-card">
-                        <h5>Ciclano</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-                
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="foto-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-                    </div>
-                    <div class="nome-card">
-                        <h5>Ciclano</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-                
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="foto-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-                    </div>
-                    <div class="nome-card">
-                        <h5>Ciclano</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-                
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="foto-card">
-                        <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-                    </div>
-                    <div class="nome-card">
-                        <h5>Ciclano</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-                
-            </div>
+                <% } %>
         </div>
     </main>
     <div class="footer">
