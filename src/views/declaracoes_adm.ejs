@@ -32,14 +32,16 @@
             <div class="selects">
                 <form action="declaracoes" method="post">
                     <select id="turmas" onchange="this.form.submit()" name="turma" class="form-select">
-                        <option value="">Selecione uma turma</option>
-                        <% for(let i = 0; i < turmas.length; i++){ %>
-                        <option value='<%= turmas[i].ID %>' <% = id == turmas[i].ID ? 'selected' : '' %>> 
-                            <%= turmas[i].Nome %>  
-                        </option>
-                        <% } %>  
+                        <option value=''>Selecione uma turma</option>
+                            <% for(let i = 0; i < turmas.length; i++) { %>
+                                <option value ='<%= turmas[i].ID %>' <%= id == turmas[i].ID ? 'selected' : '' %>>
+                                <%= turmas[i].Nome %>  
+                                </option>
+                            <% } %>  
                     </select>
                 </form>
+
+
                 <div class="space-select"></div>
                 <select class="form-select" aria-label="Default select example">
                     <option selected disabled>Situação</option>
@@ -55,115 +57,23 @@
                 <div class="card" style="background: rgb(255, 243, 189);">
                     <div class="card-body" >
                         <div class="data-card">
-                            <h5>
-                                <%= declaracoes[i].inicio %> 
-                            </h5>
+                            <h5><%= declaracoes[i].Inicio %></h5>
                         </div>
                         <div class="nome-card">
-                            <h5>
-                                <%= declaracoes[i].Nome %> 
-                            </h5>
+                            <h5><%= declaracoes[i].Nome %></h5>
                         </div>
                         <div class="buttons-card">
                             <!-- PÁGINA ABAIXO NÃO EXISTE AINDA  -->
-                            <form action="/visualizarDeclaracao" method="get">
+                            <!-- <form action="/visualizarDeclaracao" method="get">
                                 <button type="submit"><img src="../img/more.png" alt=""></button>
                             </form>
-                            
+                             -->
                             <img src="../img/check.png" alt="">
                         </div>
                     </div>
                 </div>
-                <% } %>
+            <% } %>
 
-            
-
-            <div class="card" style="background: rgb(202, 255, 189);">
-                <div class="card-body">
-                    <div class="data-card">
-                        <h5>24/01/2023</h5>
-                    </div>
-                    <div class="nome-card">
-                        <h5>Fulaninho</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="card" style="background: rgb(255, 189, 189);">
-                <div class="card-body">
-                    <div class="data-card">
-                        <h5>24/01/2023</h5>
-                    </div>
-                    <div class="nome-card">
-                        <h5>Fulaninho</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="data-card">
-                        <h5>24/01/2023</h5>
-                    </div>
-                    <div class="nome-card">
-                        <h5>Fulaninho</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="data-card">
-                        <h5>24/01/2023</h5>
-                    </div>
-                    <div class="nome-card">
-                        <h5>Fulaninho</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="data-card">
-                        <h5>24/01/2023</h5>
-                    </div>
-                    <div class="nome-card">
-                        <h5>Fulaninho</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="data-card">
-                        <h5>24/01/2023</h5>
-                    </div>
-                    <div class="nome-card">
-                        <h5>Fulaninho</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/more.png" alt="">
-                        <img src="../img/check.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
     </main>
     <div class="footer">
         <div class="container-fluid">

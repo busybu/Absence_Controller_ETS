@@ -30,6 +30,7 @@ const administrador = database.define('Administrador', {
         allowNull: false,
         defaultValue: false
     }
+    // Colocar foto futuramente
 });
 
 module.exports = administrador;

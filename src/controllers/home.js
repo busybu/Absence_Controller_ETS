@@ -9,7 +9,12 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio']
         })
-        res.render('../views/declaracoes_adm', { declaracoes, id: '', turmas: '' })
+
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio', 'Fim']
+        })
+        res.render('../views/declaracoes_adm', { id: '', turmas, declaracoes })
     },
     async pagDeclaracoesAdmPost(req, res) {
         const id = req.body.nome
@@ -24,6 +29,13 @@ module.exports = {
         res.render('../views/declaracoes_adm', { turmas, declaracoes, id })
 
     },
+    async pagUsuariosAdm(req, res){
+        const administradores = await administrador.findAll({
+            raw: true,
+            attributes: ['EDV','Nome']
+        })
+        res.render('../views/usuarios_adm', {administradores})
+    },
     async pagInicialGet(req, res) {
         res.render('../views/index');
     },
@@ -36,16 +48,10 @@ module.exports = {
     async pagHomeAdm(req, res) {
         res.render('../views/home_adm_master')
     },
-    async pagDeclaracoesAdm(req, res) {
-        res.render('../views/declaracoes_adm')
-    },
     async pagCriarTurmaAdm(req, res) {
         res.render('../views/criar_turma')
     },
     async pagTurmasAdm(req, res) {
         res.render('../views/gerenciar_turma_adm')
-    },
-    async pagUsuariosAdm(req, res) {
-        res.render('../views/usuarios_adm')
     }
 }
