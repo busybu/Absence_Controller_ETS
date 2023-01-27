@@ -39,14 +39,16 @@
                     <input type="text" class="form-control" name="edv" placeholder="EDV">
                 </div>
                 <div class="col-12">
-                    <select name="turma">
-                        <option>
-                            Turma
-                        </option>
-                        <option value="1">
-                            teste
-                        </option>
-                    </select>
+
+                        <select id="turma" name="turma" class="form-select">
+                            <option value=''>Selecione uma turma</option>
+                                <% for(let i = 0; i < turmas.length; i++) { %>
+                                    <option value ='<%= turmas[i].ID %>' <%= id == turmas[i].ID ? 'selected' : '' %>>
+                                    <%= turmas[i].ID %>  
+                                    </option>
+                                <% } %>  
+                        </select>
+
                 </div>
                 <div class="col-12">
                     <select name="motivo">

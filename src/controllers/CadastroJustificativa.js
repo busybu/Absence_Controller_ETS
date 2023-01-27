@@ -17,6 +17,7 @@ module.exports = {
         await formulario.create({
             EDV: dados.edv,
             Nome: dados.nome,
+            IdTurma: dados.turma,
             Inicio: dados.inicio,
             Fim: dados.fim,
             Descricao: dados.descricao,
