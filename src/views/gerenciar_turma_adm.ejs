@@ -30,92 +30,32 @@
     <main>
         <div class="card create-class" style="background-color: #45A765 ;">
             <a href="criar_turma" style="list-style:none; text-decoration:none;">
-            <div class="card-body create-content">
-                <h5>Adicionar Turma</h5>
-                <img src="../img/more_white.png" alt="">
-            </div>
+                <div class="card-body create-content">
+                    <h5>Adicionar Turma</h5>
+                    <img src="../img/more_white.png" alt="">
+                </div>
             </a>
         </div>
 
-
         <div class="form-classes">
-            <div class="card">
-                <div class="card-body">
-                    <div class="class-name">
-                        <h5>Mecatrônica</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/delete.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="class-name">
-                        <h5>Mecatrônica</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/delete.png" alt="">
+
+            <% for(let i=0; i<turmas.length;i++) { %>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="class-name">
+                            <h5>
+                                <%=turmas[i].Nome%>
+                            </h5>
+                        </div>
+                        <div class="buttons-card">
+                            <img src="../img/next.png" alt="">
+                            <img src="../img/delete.png" alt="">
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="class-name">
-                        <h5>Mecatrônica</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/delete.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="class-name">
-                        <h5>Mecatrônica</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/delete.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="class-name">
-                        <h5>Mecatrônica</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/delete.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="class-name">
-                        <h5>Mecatrônica</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="../img/next.png" alt="">
-                        <img src="../img/delete.png" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="class-name">
-                        <h5>Mecatrônica</h5>
-                    </div>
-                    <div class="buttons-card">
-                        <img src="/public/img/next.png" alt="">
-                        <img src="/public/img/delete.png" alt="">
-                    </div>
-                </div>
-            </div>
+
+                <% } %>
+
         </div>
 
 

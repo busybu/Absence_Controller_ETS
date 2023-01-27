@@ -35,7 +35,7 @@ const formulario = database.define('Formulario', {
     },
     Arquivo: {
         type: Sequelize.STRING(50),
-        allowNull: false,
+        allowNull: true,
     }
 });
 

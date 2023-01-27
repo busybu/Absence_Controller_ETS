@@ -29,6 +29,13 @@ module.exports = {
         res.render('../views/declaracoes_adm', { turmas, declaracoes, id })
 
     },
+    async pagTurmasAdm(req, res){
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome']
+        })
+        res.render('../views/gerenciar_turma_adm', {turmas})
+    },
     async pagUsuariosAdm(req, res){
         const administradores = await administrador.findAll({
             raw: true,
@@ -50,8 +57,5 @@ module.exports = {
     },
     async pagCriarTurmaAdm(req, res) {
         res.render('../views/criar_turma')
-    },
-    async pagTurmasAdm(req, res) {
-        res.render('../views/gerenciar_turma_adm')
     }
 }
