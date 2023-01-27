@@ -33,9 +33,9 @@
                 <form action="declaracoes" method="post">
                     <select id="turmas" onchange="this.form.submit()" name="turma" class="form-select">
                         <option value=''>Selecione uma turma</option>
-                            <% for(let i = 0; i < turmas.length; i++) { %>
-                                <option value ='<%= turmas[i].ID %>' <%= id == turmas[i].ID ? 'selected' : '' %>>
-                                <%= turmas[i].Nome %>  
+                            <% for(let i = 0; i < turma.length; i++) { %>
+                                <option value ='<%= turma[i].ID %>' <%= id == turma[i].ID ? 'selected' : '' %>>
+                                <%= turma[i].Nome %>  
                                 </option>
                             <% } %>  
                     </select>

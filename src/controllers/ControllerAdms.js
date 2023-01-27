@@ -1,20 +1,23 @@
 const administrador = require('../model/Administrador');
-
-
+const turmas = require('../model/Turma')
+const formulario = require('../model/formulario')
 //Cadastrar Adm
-
-
 
 
 module.exports = {
 
     //acessar pagina declaracoes
     async getPagDeclaracoes(req, res) {
-        const turmas = await turmas.findAll({
+        const turma = await turmas.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
-        })
-        res.render('../views/cadastro', { turmas, id: '' });
+        });
+        const declaracoes = await formulario.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+            // where: { ID: id }
+        });
+        res.render('../views/declaracoes_adm', { turma, id: '', declaracoes});
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -24,7 +27,7 @@ module.exports = {
         const id = req.body.nome;
         const declaracoes = await formulario.findAll({
             raw: true,
-            attributes: ['ID', 'Nome', 'Inicio', 'Conferido'],
+            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
             where: { ID: id }
         })
         const turmas = await turmas.findByPk({ raw: true, attributes: ['ID', 'Nome'] })
@@ -144,7 +147,7 @@ module.exports = {
             const id = user.edv;
             const declaracoes = await formulario.findAll({
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'Conferido'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
                 where: { ID: id }
             })
 
