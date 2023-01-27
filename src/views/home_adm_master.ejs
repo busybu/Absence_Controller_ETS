@@ -13,7 +13,9 @@
 </head>
 
 <body>
-  <marquee><%= edvLogado %></marquee>
+  <marquee>
+    <%= edvLogado %>
+  </marquee>
 
   <div style="background-image: url(../img/header_Bosch.jfif); width: 100%; height: 15px;"></div>
   <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow ">
@@ -38,13 +40,15 @@
           </div>
         </div>
       </a>
-      <a href="gerenciar_usuarios">
-        <div class="card" style="border-radius: 100%; border: none; background-color: #45A765;">
-          <div class="card-body">
-            <img src="../img/user-button-adm-master.png" alt="">
+      <form method="post" action="gerenciar_usuarios"> 
+        <a href="gerenciar_usuarios">
+          <div class="card" style="border-radius: 100%; border: none; background-color: #45A765;">
+            <div class="card-body">
+              <img src="../img/user-button-adm-master.png" alt="">
+            </div>
           </div>
-        </div>
-      </a>
+        </a></form>
+
       <a href="gerenciar_turmas">
         <div class="card" style="border-radius: 100%; border: none; background-color: #BA1F24;">
           <div class="card-body">
