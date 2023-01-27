@@ -5,30 +5,31 @@ const turma = require('../model/Turma');
 
 module.exports = {
     async pagDeclaracoesAdm(req, res) {
-        const declaracoes = await formulario.findAll({
-            raw: true,
-            attributes: ['ID', 'Nome', 'Inicio']
-        })
+        // const declaracoes = await formulario.findAll({
+        //     raw: true,
+        //     attributes: ['ID', 'Nome', 'Inicio', 'Conferido']
+        // });
 
         const turmas = await turma.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         })
-        res.render('../views/declaracoes_adm', { id: '', turmas, declaracoes })
+        res.render('../views/cadastro', {turmas, id:''});
     },
-    async pagDeclaracoesAdmPost(req, res) {
-        const id = req.body.nome
-        const turmas = await turma.findAll({
-            raw: true,
-            attributes: ['ID', 'Nome']
-        })
-        const declaracoes = await formulario.findAll({
-            raw: true,
-            attributes: ['ID', 'Nome', 'Inicio']
-        })
-        res.render('../views/declaracoes_adm', { turmas, declaracoes, id })
 
-    },
+    async pagDeclaracoesAdmPost(req, res) {
+        const id = req.body.nome;
+        const declaracoes = await formulario.findAll({
+            raw:true,
+            attributes: ['ID','Nome','Inicio', 'Conferido'],
+            where: {ID: id}
+        })
+        const turmas = await turma.findByPk({raw: true, attributes: ['ID', 'Nome']})
+        
+
+        res.render('../views/declaracoes_adm', { turmas, declaracoes, id })
+    }, 
+
     async pagTurmasAdm(req, res){
         const turmas = await turma.findAll({
             raw: true,
@@ -44,7 +45,12 @@ module.exports = {
         res.render('../views/usuarios_adm', {administradores})
     },
     async pagInicialGet(req, res) {
-        res.render('../views/index');
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome']
+        })
+
+        res.render('../views/index', {turmas, id:''});
     },
     async pagLogin(req, res) {
         res.render('../views/login-adm')
