@@ -2,52 +2,51 @@
 const multer = require("multer");
 // Recebendo arquivo do multer que criamos
 const config = require('./src/config/multer');
-// Cadastro de formulario irá receber um arquivo com o "name" do HTML chamado de "foto"
 
+//^^------------------------------------------------------------------------------------------------------------------
 
 // Iniciando Route do Express
 const express = require('express');
-const CadastroJustificativa = require('./src/controllers/CadastroJustificativa');
 const route = express.Router();
-route.post('/createFormulario', multer(config).single('foto'), CadastroJustificativa.insertJustificativa);
 
-// Importando os Controllers
-const home = require('./src/controllers/home');
-const cadastroTurma = require("./src/controllers/cadastroTurma");
-const cadastroJustificativa = require("./src/controllers/cadastroJustificativa");
-const verificaLogin  = require("./src/controllers/verificaLogin");
-const cadastroUsuario = require("./src/controllers/cadastroUsuario");
+//^^------------------------------------------------------------------------------------------------------------------
+
+
+const turmas = require("./src/controllers/ControllerTurma");
+const verificaLogin = require("./src/controllers/verificaLogin");
+const ControllerHomeJustificativa = require("./src/controllers/ControllerJustificativa");
+const ControllerAdms = require("./src/controllers/ControllerAdms");
 
 // Iniciando as rotas
 
-route.get('/', home.pagInicialGet);
+route.post('/createFormulario', multer(config).single('foto'), ControllerHomeJustificativa.postInsertJustificativa);
+route.get('/', ControllerHomeJustificativa.pagInicialGet);
+route.post('/createFormulario', ControllerHomeJustificativa.postInsertJustificativa);
+//////////////////////////////////////////////////////////////////////////
 
+route.get('/cadastro', ControllerAdms.getPagCadastro);
+route.post('/cadastroUsuario', ControllerAdms.postInsertUser);
 
-route.get('/cadastro', home.pagCadastro);
-route.post('/cadastroUsuario', cadastroUsuario.insertUser);
+route.get('/login', ControllerAdms.getPagLogin);
 
-route.get('/login', home.pagLogin);
+route.get('/home', ControllerAdms.getPagHomeAdm);
+
+route.get('/declaracoes', ControllerAdms.getPagDeclaracoes);
+route.post('/declaracoes', ControllerAdms.postPagDeclaracoes);
+
+route.get('/gerenciar_usuarios', ControllerAdms.getUsuariosAp);
+route.get('/aceitaAdm', ControllerAdms.postAceiteAdm);
+
+//verificar oq fazer
 route.post('/verificalogin', verificaLogin.verificaLogin)
 
+//////////////////////////////////////////////////////////////////////
 
 
-route.get('/home', home.pagHomeAdm);
-route.post('/createFormulario', cadastroJustificativa.insertJustificativa);
+route.get('/criar_turma', turmas.getCriarTurma);
+route.post('/createTurma', turmas.postInsertTurma);
 
-route.get('/declaracoes', home.pagDeclaracoesAdm);
-route.post('/declaracoes',home.pagDeclaracoesAdmPost);
+// route.get('/gerenciar_turmas', ControllerAdms.);
 
-route.get('/criar_turma', home.pagCriarTurmaAdm);
-route.post('/createTurma', cadastroTurma.insertTurma);
-route.get('/gerenciar_turmas', home.pagTurmasAdm);
-
-
-route.get('/gerenciar_usuarios', home.pagUsuariosAdm);
-
-
-
-// route.post('/', home.pagIniciaPost);
-
-// route.get('/')
 
 module.exports = route;

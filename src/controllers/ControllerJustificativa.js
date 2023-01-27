@@ -1,18 +1,17 @@
 const formulario = require('../model/Formulario');
+const turma = require('../model/Turma')
 
 module.exports = {
-    async insertJustificativa(req, res) {
-        // Recebe as informações do front-end
-        const dados = req.body;
 
+    //Cria formulario no banco
+    async postInsertJustificativa(req, res) {
+
+        const dados = req.body;
         let foto = 'usuario.png';
 
         if (req.file) {
             foto = req.file.filename;
         }
-
-        console.log(dados.inicio);
-        console.log(dados.fim);
 
         await formulario.create({
             EDV: dados.edv,
@@ -24,5 +23,14 @@ module.exports = {
             Arquivo: foto
         });
         res.redirect('/');
-    }
+    },
+
+    async pagInicialGet(req, res) {
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome']
+        })
+        res.render('../views/index', {turmas, id:''});
+    },
+
 }
