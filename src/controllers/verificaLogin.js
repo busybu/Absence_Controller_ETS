@@ -10,20 +10,12 @@ module.exports = {
         const senha = dados.senha;
 
         const user = await administrador.findOne({ where: { edv } });
+        const senha_correta = await administrador.findOne({ where: {senha}})
 
-        if (user == null)
-        {
-            console.log('invalido');
-            return;
-        }
-
-        if (user.Senha != senha)
-        {
-            console.log("Senha Inválida")
-            return;
-        }
-
-        res.render('home_adm_master', { edvLogado: edv });
+        // if (user == null || senha != senha_correta)
+        //   return {erro: 'Dados incorretos'}
+        // else
+            res.render('home_adm_master', { edvLogado: edv });
     }
 
 
