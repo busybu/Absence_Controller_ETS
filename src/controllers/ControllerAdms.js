@@ -15,9 +15,8 @@ module.exports = {
         const declaracoes = await formulario.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-            // where: { ID: id }
         });
-        res.render('../views/declaracoes_adm', { turma, id: '', declaracoes});
+        res.render('../views/declaracoes_adm', { turma, id: '', declaracoes });
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -48,122 +47,138 @@ module.exports = {
         res.render('../views/usuarios_adm', { administradores })
     },
 
+
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //aceitar adm (liberar master ou nao)
     async postAceiteAdm(req, res) {
 
-        const dados = req.body;
-        const edv = req.body.edv
+        console.log(req.body)
 
+        const dados = req.body;
+        const edv = req.body.edv;
+        const edvR = req.body.edvR;
+
+        const administradores = await administrador.findAll({
+            raw: true,
+            attributes: ['EDV', 'Nome']
+        });
+
+        if (edvR)
+        {
+            return res.render('../views/usuarios_adm', { administradores });
+
+        }
         await administrador.update({
             Master: dados.master,
-            Ativo: dados.ativo
+            Ativo: true
         },
             {
                 where: { EDV: edv }
             });
 
-        res.redirect('gerenciar_usuarios');
+        res.render('../views/usuarios_adm', { administradores });
+
     },
+
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //direcionar para pagina login de adm
     async getPagLogin(req, res) {
-        res.render('../views/login-adm')
-    },
+    res.render('../views/login-adm')
+},
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //direcionar para pagina de cadastro para adm
     async getPagCadastro(req, res) {
-        res.render('../views/cad_adm', { nome: '', senha: '', edv: '' })
-    },
+    res.render('../views/cad_adm', { nome: '', senha: '', edv: '' })
+},
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //direcionar para pagina de home adm master
     async getPagHomeAdm(req, res) {
-        res.render('../views/home_adm_master')
-    },
+    res.render('../views/home_adm_master')
+},
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //cria um novo usuario no bd
     async postInsertUser(req, res) {
-        // Recebe as informações do front-end
-        const dados = req.body;
+    // Recebe as informações do front-end
+    const dados = req.body;
 
-        console.log(dados);
 
-        await administrador.create({
-            EDV: dados.edv,
-            Nome: dados.nome,
-            Senha: dados.senha
-        });
-        res.redirect('/');
-    },
+    await administrador.create({
+        EDV: dados.edv,
+        Nome: dados.nome,
+        Senha: dados.senha
+    });
+    res.redirect('/');
+},
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //direcionar para pagina que verifica adm (aceita/edita adm)
     async getUsuariosAp(req, res) {
 
-        const administradores = await administrador.findAll({
-            raw: true,
-            attributes: ['EDV', 'Nome']
-        })
-        res.render('../views/usuarios_adm', { administradores })
-    },
+    const administradores = await administrador.findAll({
+        raw: true,
+        attributes: ['EDV', 'Nome']
+    })
+    res.render('../views/usuarios_adm', { administradores })
+},
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //verifica se o login é valido 
     async verificaLogin(req, res) {
-        const dados = req.body;
-        const edv = dados.edv; 
-        const senha = dados.senha;
 
-        const user = await administrador.findOne({ where: { edv } });
+    console.log(req.query)
+    
+    const dados = req.query;
+    const edv = dados.edv;
+    const senha = dados.senha;
 
-        if (user == null)
-        {
-            console.log('invalido');
-            return;
-        }
+    const user = await administrador.findOne({ where: { edv } });
 
-        if (user.Senha != senha)
-        {
-            console.log("Senha Inválida")
-            return;
-        }
-
-        console.log(user.Master, '1');
-
-        if(user.Master == 0)
-        {
-            console.log(user.Master, '2');
-            const id = user.edv;
-            const declaracoes = await formulario.findAll({
-                raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-                where: { ID: id }
-            })
-
-            const turmas = await turmas.findByPk({ raw: true, attributes: ['ID', 'Nome'] })
-            res.render('../views/declaracoes_adm', { turmas, declaracoes, id });
-
-            return;
-        }
-        else{
-            console.log(user.Master, '3');
-
-            res.render('home_adm_master', { edvLogado: edv });
-
+    if (user == null) {
+        return res.sendStatus(400);
     }
 
+    if (user.Senha != senha) {
+        return res.sendStatus(400);
     }
+
+    if (user.Ativo == 0) {
+        return res.sendStatus(400);
+    }
+    
+    const turma = await turmas.findAll({
+        raw: true,
+        attributes: ['ID', 'Nome', 'Inicio', 'Fim']
+    });
+    const declaracoe = await formulario.findAll({
+        raw: true,
+        attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+    });
+
+    if (user.Master == 0) {
+        const id = user.EDV;
+        const declaracoes = await formulario.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+            where: { ID: id }
+        })
+        res.render('../views/declaracoes_adm', { turma, declaracoe, id });
+    }
+    else {
+        res.render('home_adm_master', { edvLogado: edv });
+    }
+
+}
 
 
 }
