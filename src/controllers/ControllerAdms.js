@@ -64,7 +64,8 @@ module.exports = {
 
         const administradores = await administrador.findAll({
             raw: true,
-            attributes: ['EDV', 'Nome']
+            attributes: ['EDV', 'Nome'],
+           
         });
 
         if (edvR) {
@@ -72,7 +73,7 @@ module.exports = {
                 {
                     where: { EDV: edvR }
                 });
-                
+
             return res.render('../views/usuarios_adm', { administradores });
 
         }
