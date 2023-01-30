@@ -34,26 +34,32 @@
         </div>
         <div class="form-usuarios">
             <form action="/aceitaAdm" method="post" class="row g-3">
-                <% for (let i=0; i<administradores.length;i++) {%>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="foto-card">
-                                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-                            </div>
-                            <div class="nome-card">
-                                <h5>
-                                    <%=administradores[i].Nome%>
-                                </h5>
-                            </div>
-                            <div class="buttons-card">
-                                <button type="submit" name="edv" value="<%=administradores[i].EDV%>">Aceitar</button>
-                                <button type="submit" name="edvR" value="<%=administradores[i].EDV%>">Requeitar</button>
+                <% for (let i=0; i<administradores.length;i++) { %>
+                    <% if (!administradores[i].Ativo ) { %>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="foto-card">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
+                                </div>
+                                <div class="nome-card">
+                                    <h5>
+                                        <%=administradores[i].Nome%>
+                                    </h5>
+                                </div>
+                                <div class="buttons-card">
+                                    <button type="submit" name="edv"
+                                        value="<%=administradores[i].EDV%>">Aceitar</button>
+                                    <button type="submit" name="edvR"
+                                        value="<%=administradores[i].EDV%>">Requeitar</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <% } %>
+
+                        <% } %>
+                            <% } %>
         </div>
         </form>
+
     </main>
     <div class="footer">
         <div class="container-fluid">
