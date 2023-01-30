@@ -16,6 +16,7 @@ const turmas = require("./src/controllers/ControllerTurma");
 
 const ControllerHomeJustificativa = require("./src/controllers/ControllerJustificativa");
 const ControllerAdms = require("./src/controllers/ControllerAdms");
+const home = require("./src/controllers/home");
 
 // Iniciando as rotas
 
@@ -36,6 +37,9 @@ route.post('/declaracoes', ControllerAdms.postPagDeclaracoes);
 
 route.get('/gerenciar_usuarios', ControllerAdms.getUsuariosAp);
 route.post('/aceitaAdm', ControllerAdms.postAceiteAdm);
+
+route.get('/gerenciar_turmas', home.pagTurmasAdm);
+
 
 //verificar oq fazer
 route.get('/verificalogin', ControllerAdms.verificaLogin)

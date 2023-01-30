@@ -2,9 +2,6 @@ const administrador = require('../model/Administrador');
 const formulario = require('../model/Formulario');
 const turma = require('../model/Turma');
 
-
-
- 
 module.exports= {
     async pagTurmasAdm(req, res){
         const turmas = await turma.findAll({
@@ -20,7 +17,6 @@ module.exports= {
             attributes: ['EDV','Nome']
         })
         res.render('../views/usuarios_adm', {administradores})
-    },
-
+    }
    
 }
