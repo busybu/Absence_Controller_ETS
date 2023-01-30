@@ -135,6 +135,9 @@ module.exports = {
 
     //verifica se o login é valido 
     async verificaLogin(req, res) {
+
+    console.log(req.query)
+    
     const dados = req.query;
     const edv = dados.edv;
     const senha = dados.senha;
@@ -152,17 +155,24 @@ module.exports = {
     if (user.Ativo == 0) {
         return res.sendStatus(400);
     }
+    
+    const turma = await turmas.findAll({
+        raw: true,
+        attributes: ['ID', 'Nome', 'Inicio', 'Fim']
+    });
+    const declaracoe = await formulario.findAll({
+        raw: true,
+        attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+    });
 
     if (user.Master == 0) {
-        const id = user.edv;
+        const id = user.EDV;
         const declaracoes = await formulario.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
             where: { ID: id }
         })
-
-        const turmas = await turmas.findByPk({ raw: true, attributes: ['ID', 'Nome'] })
-        res.render('../views/declaracoes_adm', { turmas, declaracoes, id });
+        res.render('../views/declaracoes_adm', { turma, declaracoe, id });
     }
     else {
         res.render('home_adm_master', { edvLogado: edv });
