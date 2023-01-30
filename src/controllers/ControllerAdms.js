@@ -23,16 +23,18 @@ module.exports = {
 
     //acessar pag declaracoes conforme turma escolhida
     async postPagDeclaracoes(req, res) {
-        const id = req.body.nome;
+        //colocar o objeto que vc quer procurar
+        const id = req.body.turma;
+        console.log(id)
         const declaracoes = await formulario.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-            where: { ID: id }
+            where: { IdTurma: id }
         })
-        const turmas = await turmas.findByPk({ raw: true, attributes: ['ID', 'Nome'] })
+        const turma = await turmas.findAll({ attributes: ['ID', 'Nome']})
 
 
-        res.render('../views/declaracoes_adm', { turmas, declaracoes, id })
+        res.render('../views/declaracoes_adm', { turma, declaracoes, id })
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
