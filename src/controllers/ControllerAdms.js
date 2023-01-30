@@ -27,7 +27,7 @@ module.exports = {
         const declaracoe = await formulario.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-            where: { ID: id }
+            where: { IdTurma: id }
         })
         const turma = await turmas.findByPk({ raw: true, attributes: ['ID', 'Nome'] })
 
