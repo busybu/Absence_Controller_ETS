@@ -48,11 +48,8 @@ main{
     justify-content: center;
     position: fixed;
     transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
 } 
 .overlay:target{
-    visibility: visible;
     opacity: 1;
 }
 .cabecalho{
@@ -80,4 +77,11 @@ label{
     margin-top: 1rem;
     display: flex;
     justify-content: space-between;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    background-color: aliceblue;
 }

@@ -6,7 +6,7 @@ module.exports= {
     async pagTurmasAdm(req, res){
         const turmas = await turma.findAll({
             raw: true,
-            attributes: ['ID', 'Nome']
+            attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         })
         res.render('../views/gerenciar_turma_adm', {turmas})
     },

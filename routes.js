@@ -17,7 +17,7 @@ const verificaLogin = require("./src/controllers/verificaLogin");
 const ControllerHomeJustificativa = require("./src/controllers/ControllerJustificativa");
 const ControllerAdms = require("./src/controllers/ControllerAdms");
 const home = require("./src/controllers/home");
-
+const editar = require('./src/controllers/editar')
 // Iniciando as rotas
 
 route.post('/createFormulario', multer(config).single('foto'), ControllerHomeJustificativa.postInsertJustificativa);
@@ -39,7 +39,7 @@ route.get('/gerenciar_usuarios', ControllerAdms.getUsuariosAp);
 route.get('/aceitaAdm', ControllerAdms.postAceiteAdm);
 
 route.get('/gerenciar_turmas', home.pagTurmasAdm);
-
+route.post('/gerenciar_turma/:id', editar.adicionar);
 
 //verificar oq fazer
 route.post('/verificalogin', verificaLogin.verificaLogin)
