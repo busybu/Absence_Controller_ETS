@@ -1,6 +1,6 @@
 const administrador = require('../model/Administrador');
-const turmas = require('../model/Turma')
-const formulario = require('../model/formulario')
+const turmas = require('../model/Turma');
+const formulario = require('../model/formulario');
 //Cadastrar Adm
 
 
@@ -45,16 +45,14 @@ module.exports = {
     {
         const dados = req.body;
         const id = dados.id;
-        const edvADM = req.cookies;
         // Dando upgrade nas novas informações
         await formulario.update({
-            IdAdmConferiu: edvADM
+            IdAdmConferiu: 2312,
         },
         {
             where: { ID: id }
         });
-        
-        res.redirect('/');
+        res.redirect('/declaracoes');
     },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
