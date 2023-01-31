@@ -29,40 +29,38 @@
     </nav>
     <main>
         <div class="card create-class" style="background-color: #45A765 ;">
-            <a href="criar_turma" style="list-style:none; text-decoration:none;">
+            <a class="tittle" href="criar_turma" style="list-style:none; text-decoration:none;">
                 <div class="card-body create-content">
                     <h5>Adicionar Turma</h5>
                     <img src="../img/more_white.png" alt="">
                 </div>
             </a>
         </div>
-
         <div class="form-classes">
-    
-            
-                <% for(let i=0; i<turmas.length;i++) { %>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="class-name">
-                                <h5>
-                                    <%=turmas[i].Nome%>
-                                </h5>
-                            </div>
-                            <div class="buttons-card">
-                                <form method="get" action="/editTurma/<%= turmas[i].ID %>" id="id">
-                                    <button type="submit" class="btn btn-primary">
-                                    </button>
-                                </form>
-                                <form method="post" action="/excluirTurma/<%= turmas[i].ID %>" id="id">
-                                    <button type="submit" class="btn btn-primary">
-                                    </button>
-                                </form>
-                                <img src="../img/delete.png" alt="">
-                            </div>
+            <% for(let i=0; i<turmas.length;i++) { %>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="class-name">
+                            <h5>
+                                <%=turmas[i].Nome%>
+                            </h5>
+                        </div>
+                        <div class="buttons-card">
+                            <form method="get" action="/editTurma/<%= turmas[i].ID %>" id="id">
+                                <button type="submit">
+                                    <img src="img/more.png">
+                                </button>
+                            </form>
+                            <form method="post" action="/excluirTurma/<%= turmas[i].ID %>" id="id">
+                                <button type="submit">
+                                    <img src="img/delete.png">
+                                </button>
+                            </form>
                         </div>
                     </div>
-                    <% } %>
-                        
+                </div>
+                <% } %>
+
 
         </div>
 

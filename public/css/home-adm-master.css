@@ -9,29 +9,38 @@
     .container-xxl {
         margin: 0 2.5% 0 2%;
     }
-    .container-buttons{
+
+    .container-buttons {
         display: flex;
         align-items: center;
         flex-direction: column;
         margin-top: 1.5rem;
     }
-    .card{
-        width: 15rem;
+
+    .card {
+        width: 55%;
         display: block;
         margin: 1rem;
     }
-    .card-body{
+
+    .card-body {
         display: flex;
         justify-content: center;
     }
-    
-    .card-body img{
+
+    .card-body img {
         width: 100%;
         object-fit: contain;
         padding: 1rem;
     }
+
     .navbar-nav img {
         width: 2.5rem;
+    }
+
+    button{
+        background-color: transparent;
+        border: transparent !important;;
     }
 
 }
@@ -52,26 +61,32 @@
         width: 2.5rem;
     }
 
+    button{
+        background-color: transparent;
+        border: transparent !important;;
+    }
 
-.container-buttons{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 1.5rem;
-}
-.card{
-    width: 42vw;
-    display: block;
-    margin: 1rem;
-}
-.card-body{
-    display: flex;
-    justify-content: center;
-}
+    .container-buttons {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 1.5rem;
+    }
 
-.card-body img{
-    width: 100%;
-    object-fit: contain;
-    padding: 1rem;
-}
+    .card {
+        width: 42vw;
+        display: block;
+        margin: 1rem;
+    }
+
+    .card-body {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card-body img {
+        width: 100%;
+        object-fit: contain;
+        padding: 1rem;
+    }
 }

@@ -1,35 +1,107 @@
-.form-declaracoes{
-    margin-top: 1.5rem;
-    padding: 1rem;
+@media (min-width: 900px) {
+
+    .container,
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        margin: 0 2.5% 0 2%;
+    }
+
+    .form-declaracoes {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        width: 55%;
+    }
+
+    button {
+        background-color: transparent;
+        border: transparent !important;
+        ;
+    }
+
+    .navbar-nav img {
+        width: 2.5rem;
+    }
+
+    .space-select {
+        margin: 0.5rem;
+    }
+
+    .card-body {
+        display: flex;
+        justify-content: space-between;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+    .buttons-card img {
+        width: 1.5rem;
+    }
+
+    .buttons-card img:hover {
+        transition: 0.5s;
+        transform: scale(1.1);
+    }
+
+    .card {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 0.1rem;
+        margin-right: 0.1rem;
+    }
+
+    .selects {
+        display: flex;
+        width: 100%;
+    }
 }
 
-.navbar-nav img{
-    width: 2.5rem;
-}
+@media (max-width: 900px) {
+    .form-declaracoes {
+        margin-top: 1.5rem;
+        padding: 1rem;
+    }
 
-.space-select{
-    margin: 0.5rem;
-}
-.card-body{
-    display: flex;
-    justify-content:space-between;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-}
-.buttons-card img{
-    width: 2rem;
-}
-.buttons-card img:hover{
-    transition: 0.5s;
-    transform: scale(1.1);
-}
+    button {
+        background-color: transparent;
+        border: transparent !important;
+        ;
+    }
 
-.card{
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 0.1rem;
-    margin-right: 0.1rem;
-}
-.selects{
-    display: flex;
-    width: 100%;
+    .navbar-nav img {
+        width: 2.5rem;
+    }
+
+    .space-select {
+        margin: 0.5rem;
+    }
+
+    .card-body {
+        display: flex;
+        justify-content: space-between;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    }
+
+    .buttons-card img {
+        width: 1.5rem;
+    }
+
+    .buttons-card img:hover {
+        transition: 0.5s;
+        transform: scale(1.1);
+    }
+
+    .card {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 0.1rem;
+        margin-right: 0.1rem;
+    }
+
+    .selects {
+        display: flex;
+        width: 100%;
+    }
 }
