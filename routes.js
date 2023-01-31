@@ -42,7 +42,7 @@ route.get('/gerenciar_turmas', home.pagTurmasAdm);
 route.post('/gerenciar_turma/:id', editar.adicionar);
 
 route.post('/aceitarDeclaracao', ControllerAdms.PostAceitarDeclaracao);
-route.get('/aceitarDeclaracao', ControllerAdms.PostAceitarDeclaracao);
+
 
 //verificar oq fazer
 route.get('/verificalogin', ControllerAdms.verificaLogin)
