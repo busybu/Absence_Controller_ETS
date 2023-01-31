@@ -29,30 +29,35 @@
     </div>
   </nav>
   <main>
-    <div class="container-buttons">
-      <a href="declaracoes">
-        <div class="card" style="border-radius: 100%; border: none; background-color: #3C4994;">
-          <div class="card-body">
-            <img src="../img/form.png" alt="">
-          </div>
-        </div>
-      </a>
-      <form method="post" action="gerenciar_usuarios"> 
-        <a href="gerenciar_usuarios">
-          <div class="card" style="border-radius: 100%; border: none; background-color: #45A765;">
-            <div class="card-body">
-              <img src="../img/user-button-adm-master.png" alt="">
+    <form method="get" action="declaracoes">
+      <div class="container-buttons">
+        <button value="<%=edvLogado%>" name="edvAdm" type="submit">
+          <a href="declaracoes">
+            <div class="card" style="border-radius: 100%; border: none; background-color: #3C4994;">
+              <div class="card-body">
+                <img src="../img/form.png" alt="">
+              </div>
             </div>
-          </div>
-        </a></form>
-
-      <a href="gerenciar_turmas">
-        <div class="card" style="border-radius: 100%; border: none; background-color: #BA1F24;">
+          </a>
+        </button>
+    </form>
+    <form method="post" action="gerenciar_usuarios">
+      <a href="gerenciar_usuarios">
+        <div class="card" style="border-radius: 100%; border: none; background-color: #45A765;">
           <div class="card-body">
-            <img src="../img/manage-users.png" alt="">
+            <img src="../img/user-button-adm-master.png" alt="">
           </div>
         </div>
       </a>
+    </form>
+
+    <a href="gerenciar_turmas">
+      <div class="card" style="border-radius: 100%; border: none; background-color: #BA1F24;">
+        <div class="card-body">
+          <img src="../img/manage-users.png" alt="">
+        </div>
+      </div>
+    </a>
 
     </div>
   </main>

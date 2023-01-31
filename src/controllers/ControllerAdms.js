@@ -8,6 +8,9 @@ module.exports = {
 
     //acessar pagina declaracoes
     async getPagDeclaracoes(req, res) {
+        
+        const dados = req.query;
+        const edvLogado = dados.edvAdm;
         const turma = await turmas.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
@@ -16,16 +19,16 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
         });
+        res.cookie('edvAdm', 'edvLogado');
         res.render('../views/declaracoes_adm', { turma, id: '', declaracoe });
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
-    //acessar pag declaracoes conforme turma escolhida
+    // acessar pag declaracoes conforme turma escolhida
     async postPagDeclaracoes(req, res) {
         //colocar o objeto que vc quer procurar
         const id = req.body.turma;
-        console.log(id)
         const declaracoe = await formulario.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
@@ -37,11 +40,26 @@ module.exports = {
         res.render('../views/declaracoes_adm', { turma, declaracoe, id })
     },
 
+    //aceitar declaracao
+    async PostAceitarDeclaracao(req, res)
+    {
+        const dados = req.body;
+        const id = dados.id;
+        const edvADM = req.cookies;
+        // Dando upgrade nas novas informações
+        await formulario.update({
+            IdAdmConferiu: edvADM
+        },
+        {
+            where: { ID: id }
+        });
+        
+        res.redirect('/');
+    },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //direcionar para pagina que verifica adm (aceita/edita adm)
     async getAceiteAdm(req, res) {
-
 
         const administradores = await administrador.findAll({
             raw: true,
@@ -54,6 +72,8 @@ module.exports = {
 
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
+
+
 
     //aceitar adm (liberar master ou nao)
     async postAceiteAdm(req, res) {
@@ -90,6 +110,8 @@ module.exports = {
         res.render('../views/usuarios_adm', { administradores });
 
     },
+
+    
 
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
