@@ -31,7 +31,7 @@ module.exports = {
     async postPagDeclaracoes(req, res) {
         //colocar o objeto que vc quer procurar
         const id = req.body.turma;  
-        if(declaracoe.IdAdmConferiu != '')
+        if(declaracoes.IdAdmConferiu != '')
         {
             const declaracoe = await formulario.findAll({
                 raw: true,
@@ -48,7 +48,7 @@ module.exports = {
             const declaracoe = await formulario.findAll({
                 raw: true,
                 attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-                where: { IdTurma: id, IdAdmConferiu: }
+                where: { IdTurma: id}
             })
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome']})
     

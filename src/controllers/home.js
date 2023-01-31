@@ -8,6 +8,7 @@ module.exports= {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         })
+        console.log(turmas);
         res.render('../views/gerenciar_turma_adm', {turmas})
     },
 

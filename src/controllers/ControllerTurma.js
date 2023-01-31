@@ -12,7 +12,13 @@ module.exports = {
             Inicio: dados.inicio,
             Fim: dados.fim
         });
-        res.redirect('/');
+
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio', 'Fim']
+        });
+
+        res.render('../views/gerenciar_turma_adm', { turmas });
     },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
     //edit Turma
@@ -26,10 +32,15 @@ module.exports = {
             Inicio: dados.inicio,
             Fim: dados.fim
         },
-        {
-            where: { ID: id }
-        });
-        res.redirect('/');
+            {
+                where: { ID: id }
+            });
+
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio', 'Fim']
+        })
+        res.render('../views/gerenciar_turma_adm', { turmas });
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -47,11 +58,27 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
-        res.render('../views/editarTurma', {turmas});
-    }
+        res.render('../views/editarTurma', { turmas });
+    },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
+
+    async apagarSala(req, res) {
+        const parametro = req.params.id;
+        const id = req.params.id;
+        turma.destroy(
+            {
+                where: { ID: id }
+            });
+
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio', 'Fim']
+        });
+        
+        res.render('../views/gerenciar_turma_adm', { turmas });
+    },
 
 
 }

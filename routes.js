@@ -17,6 +17,7 @@ const turmas = require("./src/controllers/ControllerTurma");
 const ControllerHomeJustificativa = require("./src/controllers/ControllerJustificativa");
 const ControllerAdms = require("./src/controllers/ControllerAdms");
 const home = require("./src/controllers/home");
+const ControllerTurma = require("./src/controllers/ControllerTurma");
 // const editar = require('./src/controllers/editar')
 // Iniciando as rotas
 
@@ -50,13 +51,16 @@ route.get('/verificalogin', ControllerAdms.verificaLogin)
 //////////////////////////////////////////////////////////////////////
 
 
-route.get('/criar_turma', turmas.getCriarTurma);
-route.post('/createTurma', turmas.postInsertTurma);
+route.get('/criar_turma', ControllerTurma.getCriarTurma);
+route.post('/createTurma', ControllerTurma.postInsertTurma);
 
 
-route.get('/editTurma/:id', turmas.getEditTurma);
-route.post('/editTurmaP/:id', turmas.postEditTurma);
-// route.get('/gerenciar_turmas', ControllerAdms.);
+route.get('/editTurma/:id', ControllerTurma.getEditTurma);
+route.post('/editTurmaP/:id', ControllerTurma.postEditTurma);
+
+
+route.post('/excluirTurma/:id', ControllerTurma.apagarSala);
+
 
 
 module.exports = route;
