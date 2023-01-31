@@ -58,7 +58,8 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
-        res.redirect('/gerenciar_turmas');
+        res.render('editarTurma', { turmas });
+
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
