@@ -1,6 +1,6 @@
 const administrador = require('../model/Administrador');
-const turmas = require('../model/Turma')
-const formulario = require('../model/formulario')
+const turmas = require('../model/Turma');
+const formulario = require('../model/formulario');
 //Cadastrar Adm
 
 
@@ -21,40 +21,14 @@ module.exports = {
         res.render('../views/declaracoes_adm', { turma, id: '', declaracoe, edvLogado });
     },
 
-    async PostAceitarDeclaracao(req, res)
-    {
-        const edvLogado = req.body.edvLogado;
-        const id = req.body.id;
 
-        const turma = await turmas.findAll({
-            raw: true,
-            attributes: ['ID', 'Nome', 'Inicio', 'Fim']
-        });
-        const declaracoe = await formulario.findAll({
-            raw: true,
-            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-        });
-
-        console.log(id)
-        await formulario.update({
-            IdAdmConferiu: edvLogado,
-        },
-            {
-                where: { ID: id }
-            });
-
-        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe, edvLogado });
-    },
-    
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
-    //acessar pag declaracoes conforme turma escolhida
+    // acessar pag declaracoes conforme turma escolhida
     async postPagDeclaracoes(req, res) {
         //colocar o objeto que vc quer procurar
-        const edvLogado = req.body.edvLogado;
         const id = req.body.turma;
-        console.log(id)
         const declaracoe = await formulario.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
@@ -63,9 +37,23 @@ module.exports = {
         const turma = await turmas.findAll({ attributes: ['ID', 'Nome']})
 
 
-        res.render('../views/declaracoes_adm', { turma, declaracoe, id, edvLogado });
+        res.render('../views/declaracoes_adm', { turma, declaracoe, id })
     },
 
+    //aceitar declaracao
+    async PostAceitarDeclaracao(req, res)
+    {
+        const dados = req.body;
+        const id = dados.id;
+        // Dando upgrade nas novas informações
+        await formulario.update({
+            IdAdmConferiu: 2312,
+        },
+        {
+            where: { ID: id }
+        });
+        res.redirect('/declaracoes');
+    },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //direcionar para pagina que verifica adm (aceita/edita adm)
