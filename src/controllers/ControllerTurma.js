@@ -12,7 +12,7 @@ module.exports = {
             Inicio: dados.inicio,
             Fim: dados.fim
         });
-        res.redirect('/');
+        res.redirect('../view/gerenciar_turma');
     },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
     //edit Turma
@@ -48,10 +48,20 @@ module.exports = {
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
         res.render('../views/editarTurma', {turmas});
-    }
+    },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
+    async postDeleteTurma(req,res){
+        
+        const id = req.params.id;
+
+        await turma.destroy(
+        {
+            where: { ID: id }
+        });
+        res.redirect('/');
+    }
 
 
 }

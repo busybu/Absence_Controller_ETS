@@ -44,6 +44,8 @@ route.get('/gerenciar_turmas', home.pagTurmasAdm);
 route.post('/aceitarDeclaracao', ControllerAdms.PostAceitarDeclaracao);
 
 
+//rota para turma
+
 //verificar oq fazer
 route.get('/verificalogin', ControllerAdms.verificaLogin)
 
@@ -58,5 +60,7 @@ route.get('/editTurma/:id', turmas.getEditTurma);
 route.post('/editTurmaP/:id', turmas.postEditTurma);
 // route.get('/gerenciar_turmas', ControllerAdms.);
 
+
+route.post('/excluirSala/:id', turmas.postDeleteTurma);
 
 module.exports = route;
