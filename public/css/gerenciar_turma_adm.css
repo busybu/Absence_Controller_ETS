@@ -3,6 +3,12 @@ main{
     display: flex;
     flex-direction: column;
 }
+
+button{
+    border: none;
+    background-color: gainsboro;
+}
+
 .create-class{
     width: 90%;
 }

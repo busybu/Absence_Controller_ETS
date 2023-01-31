@@ -18,7 +18,7 @@ module.exports = {
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
 
-        res.render('../views/gerenciar_turma_adm', { turmas });
+        res.redirect('/gerenciar_turmas');
     },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
     //edit Turma
@@ -40,7 +40,7 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         })
-        res.render('../views/gerenciar_turma_adm', { turmas });
+        res.redirect('/gerenciar_turmas');
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -58,14 +58,13 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
-        res.render('../views/editarTurma', { turmas });
+        res.redirect('/gerenciar_turmas');
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
 
     async apagarSala(req, res) {
-        const parametro = req.params.id;
         const id = req.params.id;
         turma.destroy(
             {
@@ -77,7 +76,7 @@ module.exports = {
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
         
-        res.render('../views/gerenciar_turma_adm', { turmas });
+        res.redirect('/gerenciar_turmas');
     },
 
 
