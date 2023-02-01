@@ -167,6 +167,7 @@
     }
 
     .buttons-card {
+        display: flex;
         margin-left: 4rem;
     }
 

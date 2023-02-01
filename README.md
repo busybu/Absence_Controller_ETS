@@ -6,5 +6,6 @@
 - [X]  Testar aceitar atestado pelo adm normal - Gabi
 - [ ]  Aparecer todos os usuários para adm master (excluir, editar, etc)
 - [ ]  Colocar informações em editar turma/usuário
-- [ ]  Confirmação de delete (turma, usuário)
+- [X]  Confirmação de delete (turma)
+- [ ]  Confirmação de delete (usuário)
 - [ ]  Regra de Negócio para não aceitar o input do dia do formulário antes do dia/horário que está sendo colocado
