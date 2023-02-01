@@ -33,29 +33,41 @@
             <hr>
         </div>
         <div class="form-usuarios">
-            <form action="/aceitaAdm" method="post" class="row g-3">
+            <form action="/aceitaAdm/" method="post" class="row g-3">
                 <% for (let i=0; i<administradores.length;i++) {%>
-                    <% if (!administradores[i].Ativo ) { %>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="foto-card">
-                                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
+                    <% if (administradores[i].EDV !=edvLogado) { %>
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="foto-card">
+                                    <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
+                                </div>
+                                <div class="nome-card">
+                                    <h5>
+                                        <%=administradores[i].Nome%>
+                                    </h5>
+                                </div>
+
+                                <div class="buttons-card">
+
+                                    <h6>Ativo:</h6>
+
+                                    <% if (administradores[i].Ativo == 0) { %>
+                                        <button type="submit" name="edv" value="<%=administradores[i].EDV%>" >
+                                            <img src="/img/check.png">
+                                        </button>
+                                        <%} else { %>
+                                            <button type="submit" name="edv" value="<%=administradores[i].EDV%>" disabled>
+                                                <img src="/img/checkPB.png">
+                                            </button>
+                                            <% } %>
+                                                <button type="submit" name="edvR" value="<%=administradores[i].EDV%>">
+                                                    <img src="/img/delete.png">
+                                                </button>
+                                </div>
                             </div>
-                            <div class="nome-card">
-                                <h5>
-                                    <%=administradores[i].Nome%>
-                                </h5>
-                            </div>
-                            <div class="buttons-card">
-                                <button type="submit" name="edv" value="<%=administradores[i].EDV%>"><img
-                                        src="/img/check.png"></button>
-                                <button type="submit" name="edvR" value="<%=administradores[i].EDV%>"><img
-                                        src="/img/delete.png"></button>
-                            </div>
+                            <% } %>
+                                <% } %>
                         </div>
-                        <% } %>
-                        <% } %>
-                    </div>
             </form>
     </main>
     <div class="footer">

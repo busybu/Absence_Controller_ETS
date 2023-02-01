@@ -33,8 +33,8 @@ route.get('/home', ControllerAdms.getPagHomeAdm);
 route.get('/declaracoes', ControllerAdms.getPagDeclaracoes);
 route.post('/declaracoes', ControllerAdms.postPagDeclaracoes);
 
-route.get('/gerenciar_usuarios', ControllerAdms.getUsuariosAp);
-route.post('/aceitaAdm', ControllerAdms.postAceiteAdm);
+route.get('/gerenciar_usuarios/', ControllerAdms.getUsuariosAp);
+route.post('/aceitaAdm/', ControllerAdms.postAceiteAdm);
 
 route.get('/gerenciar_turmas', home.pagTurmasAdm);
 

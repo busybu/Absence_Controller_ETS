@@ -56,8 +56,9 @@
         margin-left: 3rem;
         width:10%;
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-end;
         border-radius: 10px;
+        align-items: flex-end;
     }
 
     .buttons-card img {
@@ -154,7 +155,8 @@
         margin-left: 3rem;
         width: 40%;
         display: flex;
-        justify-content: space-around;
+        justify-content: flex-end;
+        align-items: flex-end;
     }
 
     .buttons-card img {

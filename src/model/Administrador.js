@@ -21,12 +21,12 @@ const administrador = database.define('Administrador', {
         allowNull: false
     },
     Master: {
-        type: BOOLEAN,
+        type: Sequelize.INTEGER,
         allowNull: true,
         defaultValue: false
     },
     Ativo: {
-        type: BOOLEAN,
+        type: Sequelize.INTEGER,
         allowNull: true,
         defaultValue: false
     }
