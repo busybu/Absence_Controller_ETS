@@ -120,7 +120,8 @@ module.exports = {
             {
                 where: { EDV: edv }
             });
-
+        
+            
         res.render('../views/usuarios_adm', { administradores });
 
     },
@@ -142,10 +143,12 @@ module.exports = {
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
-    //direcionar para pagina de home adm master
-    // async getPagHomeAdm(req, res) {
-    //     res.render('../views/home_adm_master')
-    // },
+    // direcionar para pagina de home adm master
+    async getPagHomeAdm(req, res) {
+        req.cookie('edvLogado', edv);
+        res.cookie('edvLogado', edv);
+        res.render('../views/home_adm_master')
+    },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -221,10 +224,12 @@ module.exports = {
                 raw: true,
                 attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
                 where: { ID: id }
-            })
+            });
+            res.cookie('edvLogado', edv);
             res.render('../views/declaracoes_adm', { turma, declaracoe, id });
         }
         else {
+            res.cookie('edvLogado', edv);
             res.render('home_adm_master', { edvLogado: edv });
         }
     }
