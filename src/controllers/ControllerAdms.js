@@ -20,7 +20,7 @@ module.exports = {
         });
         const declaracoe = await formulario.findAll({
             raw: true,
-            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao','Arquivo','IdTurma', 'EDV'],
+            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao', 'Arquivo', 'IdTurma', 'EDV'],
         });
         res.cookie('edvAdm', edvLogado);
         res.render('../views/declaracoes_adm', { turma, id: '', declaracoe });
@@ -66,7 +66,7 @@ module.exports = {
 
         const administradores = await administrador.findAll({
             raw: true,
-            attributes: ['EDV', 'Nome', 'Ativo'],
+            attributes: ['EDV', 'Nome', 'Ativo', 'Master'],
         })
         console.log(administradores)
 
@@ -84,6 +84,9 @@ module.exports = {
         const dados = req.body;
         const edv = req.body.edv;
         const edvR = req.body.edvR;
+        const master = req.body.master;
+        const masterR = req.body.masterR;
+
 
         const administradores = await administrador.findAll({
             raw: true,
@@ -97,20 +100,51 @@ module.exports = {
                     where: { EDV: edvR }
                 });
 
-            return res.render('../views/usuarios_adm', { administradores });
-
+            const edvLogado = req.cookies.edvLogado;
+            res.cookie('edvLogado', edvLogado);
+            res.redirect('/gerenciar_usuarios/');
         }
-        await administrador.update({
-            Master: dados.master,
-            Ativo: 1
-        },
-            {
-                where: { EDV: edv }
-            });
-        
-        const edvLogado = req.cookies.edvLogado;
-        res.cookie('edvLogado', edvLogado);
-        res.redirect('/gerenciar_usuarios/');
+        else if (edv) {
+            await administrador.update({
+                Master: dados.master,
+                Ativo: 1
+            },
+                {
+                    where: { EDV: edv }
+                });
+            const edvLogado = req.cookies.edvLogado;
+            res.cookie('edvLogado', edvLogado);
+            res.redirect('/gerenciar_usuarios/');
+        }
+
+        if (master) {
+            await administrador.update({
+                Master: 1,
+                Ativo: dados.ativo
+            },
+                {
+                    where: { EDV: master }
+                });
+            const edvLogado = req.cookies.edvLogado;
+            res.cookie('edvLogado', edvLogado);
+            res.redirect('/gerenciar_usuarios/');
+        }
+        else if (masterR) {
+            await administrador.update({
+                Master: 0,
+                Ativo: dados.ativo
+            },
+                {
+                    where: { EDV: masterR }
+                });
+            const edvLogado = req.cookies.edvLogado;
+            res.cookie('edvLogado', edvLogado);
+            res.redirect('/gerenciar_usuarios/');
+        }
+
+        // const edvLogado = req.cookies.edvLogado;
+        // res.cookie('edvLogado', edvLogado);
+        // res.redirect('/gerenciar_usuarios/');
     },
 
 
@@ -159,7 +193,7 @@ module.exports = {
     async getUsuariosAp(req, res) {
         const administradores = await administrador.findAll({
             raw: true,
-            attributes: ['EDV', 'Nome', 'Ativo'],
+            attributes: ['EDV', 'Nome', 'Ativo', 'Master'],
         });
         const edvLogado = req.cookies.edvLogado;
         res.cookie('edvLogado', edvLogado);

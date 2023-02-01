@@ -10,11 +10,15 @@
         margin: 0 2.5% 0 2%;
     }
 
+    form{
+        margin: 0 3rem;
+    }
+
     .container-buttons {
         display: flex;
         align-items: center;
-        flex-direction: column;
-        margin-top: 1.5rem;
+        flex-direction: row;
+        margin-top: 8rem;
     }
 
     .card {
