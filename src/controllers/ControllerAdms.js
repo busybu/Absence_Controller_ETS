@@ -48,7 +48,7 @@ module.exports = {
             const declaracoe = await formulario.findAll({
                 raw: true,
                 attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-                where: { IdTurma: id, IdAdmConferiu: }
+                where: { IdTurma: id, }
             })
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome']})
     
@@ -143,9 +143,9 @@ module.exports = {
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //direcionar para pagina de home adm master
-    async getPagHomeAdm(req, res) {
-        res.render('../views/home_adm_master')
-    },
+    // async getPagHomeAdm(req, res) {
+    //     res.render('../views/home_adm_master')
+    // },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 

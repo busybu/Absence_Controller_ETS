@@ -58,10 +58,24 @@ module.exports = {
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
         res.render('../views/editarTurma', {turmas});
-    }
+    },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
+    async apagarSala(req, res) {
+        const parametro = req.params.id;
+        const id = req.params.id;
+        turma.destroy(
+            {
+                where: { ID: id }
+            });
 
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio', 'Fim']
+        });
+
+        res.redirect('/gerenciar_turmas');
+    },
 
 }
