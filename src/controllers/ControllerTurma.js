@@ -46,6 +46,8 @@ module.exports = {
 
     //Direcionando para pag criar turma
     async getCriarTurma(req, res) {
+        const edvLogado = req.cookies.edv;
+        res.cookie('edvLogado', edvLogado);
         res.render('../views/criar_turma');
     },
 
@@ -57,13 +59,13 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
+        
         res.render('../views/editarTurma', {turmas});
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     async apagarSala(req, res) {
-        const parametro = req.params.id;
         const id = req.params.id;
         turma.destroy(
             {
@@ -77,5 +79,4 @@ module.exports = {
 
         res.redirect('/gerenciar_turmas');
     },
-
 }

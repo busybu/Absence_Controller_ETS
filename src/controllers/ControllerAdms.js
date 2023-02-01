@@ -39,10 +39,7 @@ module.exports = {
                 where: { IdTurma: id }
             })
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-
-
             res.render('../views/declaracoes_adm', { turma, declaracoe, id });
-
         }
         else {
             const declaracoe = await formulario.findAll({
@@ -98,8 +95,6 @@ module.exports = {
     //aceitar adm (liberar master ou nao)
     async postAceiteAdm(req, res) {
 
-        console.log(req.body)
-
         const dados = req.body;
         const edv = req.body.edv;
         const edvR = req.body.edvR;
@@ -129,7 +124,6 @@ module.exports = {
 
 
         res.render('../views/usuarios_adm', { administradores });
-
     },
 
 
@@ -153,9 +147,9 @@ module.exports = {
 
     // direcionar para pagina de home adm master
     async getPagHomeAdm(req, res) {
-        req.cookie('edvLogado', edv);
-        res.cookie('edvLogado', edv);
-        res.render('../views/home_adm_master')
+        const edvLogado = req.cookies.edvLogado;
+        res.cookie('edvLogado', edvLogado);
+        res.render('../views/home_adm_master', { edvLogado })
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -164,8 +158,6 @@ module.exports = {
     async postInsertUser(req, res) {
         // Recebe as informações do front-end
         const dados = req.body;
-
-
         await administrador.create({
             EDV: dados.edv,
             Nome: dados.nome,
@@ -178,12 +170,13 @@ module.exports = {
 
     //direcionar para pagina que verifica adm (aceita/edita adm)
     async getUsuariosAp(req, res) {
-
         const administradores = await administrador.findAll({
             raw: true,
             attributes: ['EDV', 'Nome'],
             where: { Ativo: 0 }
-        })
+        });
+        const edvLogado = req.cookies.edvLogado;
+        res.cookie('edvLogado', edvLogado);
         res.render('../views/usuarios_adm', { administradores })
     },
 
@@ -196,8 +189,6 @@ module.exports = {
 
     //verifica se o login é valido 
     async verificaLogin(req, res) {
-
-        console.log(req.query)
 
         const dados = req.query;
         const edv = dados.edv;
@@ -228,7 +219,7 @@ module.exports = {
 
         if (user.Master == 0) {
             const id = user.EDV;
-            const declaracoes = await formulario.findAll({
+            const declaracoe = await formulario.findAll({
                 raw: true,
                 attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
                 where: { ID: id }

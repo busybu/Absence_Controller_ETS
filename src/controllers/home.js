@@ -8,7 +8,8 @@ module.exports= {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         })
-        console.log(turmas);
+        const edvLogado = req.cookies.edvLogado;
+        res.cookie('edvLogado', edvLogado);
         res.render('../views/gerenciar_turma_adm', {turmas})
     },
 
@@ -16,7 +17,9 @@ module.exports= {
         const administradores = await administrador.findAll({
             raw: true,
             attributes: ['EDV','Nome']
-        })
+        });
+        const edvLogado = req.cookies.edv;
+        res.cookie('edvLogado', edvLogado);
         res.render('../views/usuarios_adm', {administradores})
     }
    
