@@ -1,2 +1,0 @@
-*Criar tela inf justicativa/requisicoes 
-*Corrigir erro de voltar para home e dar erro em 'edvLogado"

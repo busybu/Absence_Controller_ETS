@@ -12,7 +12,6 @@ module.exports = {
             Inicio: dados.inicio,
             Fim: dados.fim
         });
-
         const turmas = await turma.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
@@ -47,6 +46,8 @@ module.exports = {
 
     //Direcionando para pag criar turma
     async getCriarTurma(req, res) {
+        const edvLogado = req.cookies.edv;
+        res.cookie('edvLogado', edvLogado);
         res.render('../views/criar_turma');
     },
 
@@ -58,12 +59,11 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
-        res.render('editarTurma', { turmas });
-
+        
+        res.render('../views/editarTurma', {turmas});
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
-
 
     async apagarSala(req, res) {
         const id = req.params.id;
@@ -76,9 +76,7 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
-        
+
         res.redirect('/gerenciar_turmas');
     },
-
-
 }

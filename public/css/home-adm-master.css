@@ -89,4 +89,9 @@
         object-fit: contain;
         padding: 1rem;
     }
+
+    button {
+        border: none;
+        background-color: transparent;
+    }
 }

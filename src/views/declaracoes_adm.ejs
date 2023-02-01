@@ -43,6 +43,7 @@
                     </select>
                 </form>
                 <div class="space-select"></div>
+
                 <form action="declaracoes" method="post">
                     <select id="situacao" onchange="this.form.submit()" name="situacao" class="form-select">
                         <option value=''>Situação</option>
@@ -79,26 +80,106 @@
                              -->
                             <!-- aceitar declaracao -->
                             <form action="aceitarDeclaracao" method="post">
-
-                                <button type="submit" id="<%=declaracoe[i].ID%> " name="id">
-                                    <img src="../img/check.png" alt="">
+                                <!-- value para funcionar -->
+                                <button type="submit" value="<%=declaracoe[i].ID%> " name="id">
+                                    <img src="../img/check.png" alt="aceitar declaração">
                                 </button>
+                                <!-- Button trigger modal -->
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <img src="../img/more.png" alt="visualizar declaração">
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Visualizar
+                                                    Declaração</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="mb-3">
+                                                    <label for="nome-modal" class="form-label">
+                                                        Nome
+                                                    </label>
+                                                    <input type="text" id="nome-modal" class="form-control"
+                                                        placeholder="<%= declaracoe[i].Nome %>" disabled>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="edv-modal" class="form-label">
+                                                        EDV
+                                                    </label>
+                                                    <input type="text" id="edv-modal" class="form-control"
+                                                        placeholder="<%= declaracoe[i].EDV %>" disabled>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="turma-modal" class="form-label">
+                                                        Turma
+                                                    </label>
+                                                    <select id="turma-modal" class="form-select" disabled>
+                                                        <option>
+                                                            <%= declaracoe[i].IdTurma %>
+                                                        </option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="descricao-modal" class="form-label">
+                                                        Descrição
+                                                    </label>
+                                                    <input type="text" id="descricao-modal" class="form-control"
+                                                        placeholder="<%= declaracoe[i].Descricao %>" rows="3" disabled>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="dateIni-modal" class="form-label">
+                                                        Data inicial
+                                                    </label>
+                                                    <input type="text" id="dateIni-modal" class="form-control"
+                                                        placeholder="<%= declaracoe[i].Inicio%>" disabled>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="dateEnd-modal" class="form-label">
+                                                        Data final
+                                                    </label>
+                                                    <input type="text" id="dateEnd-modal" class="form-control"
+                                                        placeholder="<%= declaracoe[i].Fim%>" disabled>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
-
-
-
                         </div>
                     </div>
                 </div>
                 <% } %>
-
     </main>
     <div class="footer">
         <div class="container-fluid">
             <h3>Sponsored by ETS</h3>
         </div>
     </div>
+    <script src="js/popUp.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
         crossorigin="anonymous"></script>
 </body>

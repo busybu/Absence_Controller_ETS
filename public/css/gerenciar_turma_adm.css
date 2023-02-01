@@ -15,10 +15,11 @@
         flex-direction: column;
     }
 
-    button{
+    button {
+        border: none;
         background-color: transparent;
-        border: transparent !important;;
     }
+
 
     .create-class {
         width: 55%;
@@ -54,11 +55,12 @@
     }
 
     .form-classes {
-       width: 55%;
+        width: 55%;
     }
 
     .card {
         margin-top: 1rem;
+        
     }
 
     .card-body {
@@ -120,8 +122,8 @@
     .container {
         background-color: aliceblue;
     }
-}
 
+}
 @media (max-width: 900px) {
 
     .container,
@@ -139,10 +141,11 @@
         flex-direction: column;
     }
 
-    button{
+    button {
+        border: none;
         background-color: transparent;
-        border: transparent !important;;
     }
+
 
     .create-class {
         width: 90%;
@@ -152,10 +155,6 @@
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-    }
-
-    .tittle{
-        width: 100%;
     }
 
     .create-content h5 {
@@ -168,6 +167,7 @@
     }
 
     .buttons-card {
+        display: flex;
         margin-left: 4rem;
     }
 
@@ -248,4 +248,5 @@
     .container {
         background-color: aliceblue;
     }
+
 }

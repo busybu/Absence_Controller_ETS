@@ -44,7 +44,7 @@
                             <option value=''>Selecione uma turma</option>
                                 <% for(let i = 0; i < turmas.length; i++) { %>
                                     <option value ='<%= turmas[i].ID %>' <%= id == turmas[i].ID ? 'selected' : '' %>>
-                                    <%= turmas[i].ID %>  
+                                    <%= turmas[i].Nome %>  
                                     </option>
                                 <% } %>  
                         </select>
