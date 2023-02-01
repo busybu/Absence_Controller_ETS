@@ -9,11 +9,11 @@ module.exports = {
 
     //acessar pagina declaracoes
     async getPagDeclaracoes(req, res) {
-        
+
         const dados = req.query;
         console.log(dados)
         const edvLogado = dados.edvLogado;
-        console.log('edvLogado: '+edvLogado)
+        console.log('edvLogado: ' + edvLogado)
         const turma = await turmas.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
@@ -31,9 +31,8 @@ module.exports = {
     // acessar pag declaracoes conforme turma escolhida
     async postPagDeclaracoes(req, res) {
         //colocar o objeto que vc quer procurar
-        const id = req.body.turma;  
-        if(declaracoe.IdAdmConferiu != '')
-        {
+        const id = req.body.turma;
+        if (declaracoe.IdAdmConferiu != '') {
             const declaracoe = await formulario.findAll({
                 raw: true,
                 attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
@@ -51,9 +50,9 @@ module.exports = {
                 attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
                 where: { IdTurma: id, }
             })
-            const turma = await turmas.findAll({ attributes: ['ID', 'Nome']})
-    
-    
+            const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] })
+
+
             res.render('../views/declaracoes_adm', { turma, declaracoe, id })
 
         }
@@ -63,14 +62,16 @@ module.exports = {
     async PostAceitarDeclaracao(req, res) {
         const dados = req.body;
         const id = dados.id;
+        console.log(dados)
         console.log(req.cookies.edvAdm)
         // Dando upgrade nas novas informações
         await formulario.update({
             IdAdmConferiu: req.cookies.edvAdm,
         },
             {
-                where: { ID: id }
+                where: { ID: id },
             });
+       
         res.cookie('edvAdm', req.cookies.edvAdm);
         //erro de não poder realizar duas confirmações de formulário sem refazer o login (o login não esta sendo passado na url quando redireciona)
         res.redirect('/');
@@ -125,13 +126,13 @@ module.exports = {
             {
                 where: { EDV: edv }
             });
-        
-            
+
+
         res.render('../views/usuarios_adm', { administradores });
 
     },
 
-    
+
 
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -189,7 +190,7 @@ module.exports = {
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //direcionar para pagina que vque gerencia turmas
-    
+
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 

@@ -12,7 +12,6 @@ module.exports = {
             Inicio: dados.inicio,
             Fim: dados.fim
         });
-
         const turmas = await turma.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
@@ -58,13 +57,13 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
-        res.redirect('/gerenciar_turmas');
+        res.render('../views/editarTurma', {turmas});
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
-
     async apagarSala(req, res) {
+        const parametro = req.params.id;
         const id = req.params.id;
         turma.destroy(
             {
@@ -75,9 +74,8 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
-        
+
         res.redirect('/gerenciar_turmas');
     },
-
 
 }

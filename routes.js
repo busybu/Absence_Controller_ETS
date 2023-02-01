@@ -37,7 +37,6 @@ route.get('/gerenciar_usuarios', ControllerAdms.getUsuariosAp);
 route.post('/aceitaAdm', ControllerAdms.postAceiteAdm);
 
 route.get('/gerenciar_turmas', home.pagTurmasAdm);
-route.post('/gerenciar_turma/:id', editar.adicionar);
 
 route.post('/aceitarDeclaracao', ControllerAdms.PostAceitarDeclaracao);
 
@@ -53,10 +52,8 @@ route.post('/createTurma', ControllerTurma.postInsertTurma);
 route.get('/editTurma/:id', ControllerTurma.getEditTurma);
 route.post('/editTurmaP/:id', ControllerTurma.postEditTurma);
 
-route.get('/criar_turma', turmas.getCriarTurma);
-route.post('/createTurma', turmas.postInsertTurma);
 
-// route.get('/gerenciar_turmas', ControllerAdms.);
+route.post('/excluirTurma/:id', ControllerTurma.apagarSala);
 
 
 module.exports = route;
