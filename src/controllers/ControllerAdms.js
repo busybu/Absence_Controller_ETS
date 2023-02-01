@@ -102,14 +102,15 @@ module.exports = {
         }
         await administrador.update({
             Master: dados.master,
-            Ativo: true
+            Ativo: 1
         },
             {
                 where: { EDV: edv }
             });
-
-
-        res.render('../views/usuarios_adm', { administradores });
+        
+        const edvLogado = req.cookies.edvLogado;
+        res.cookie('edvLogado', edvLogado);
+        res.redirect('/gerenciar_usuarios/');
     },
 
 
@@ -158,12 +159,11 @@ module.exports = {
     async getUsuariosAp(req, res) {
         const administradores = await administrador.findAll({
             raw: true,
-            attributes: ['EDV', 'Nome'],
-            where: { Ativo: 0 }
+            attributes: ['EDV', 'Nome', 'Ativo'],
         });
         const edvLogado = req.cookies.edvLogado;
         res.cookie('edvLogado', edvLogado);
-        res.render('../views/usuarios_adm', { administradores })
+        res.render('../views/usuarios_adm', { administradores, edvLogado })
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
