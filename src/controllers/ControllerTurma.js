@@ -59,6 +59,7 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
+        
         res.render('../views/editarTurma', {turmas});
     },
 
