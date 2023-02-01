@@ -23,7 +23,7 @@ module.exports = {
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
         });
         res.cookie('edvAdm', edvLogado);
-        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe: '' });
+        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe });
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -32,19 +32,35 @@ module.exports = {
     async postPagDeclaracoes(req, res) {
         //colocar o objeto que vc quer procurar
         const id = req.body.turma;  
-        const declaracoe = await formulario.findAll({
-            raw: true,
-            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-            where: { ID: id}
-        })
-        const turma = await turmas.findAll({ attributes: ['ID', 'Nome']})
+        if(declaracoe.IdAdmConferiu != '')
+        {
+            const declaracoe = await formulario.findAll({
+                raw: true,
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+                where: { IdTurma: id }
+            })
+            const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
 
-        res.render('../views/declaracoes_adm', { turma, declaracoe, id })
+
+            res.render('../views/declaracoes_adm', { turma, declaracoe, id });
+
+        }
+        else {
+            const declaracoe = await formulario.findAll({
+                raw: true,
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+                where: { IdTurma: id, }
+            })
+            const turma = await turmas.findAll({ attributes: ['ID', 'Nome']})
+    
+    
+            res.render('../views/declaracoes_adm', { turma, declaracoe, id })
+
+        }
     },
 
     //aceitar declaracao
-    async PostAceitarDeclaracao(req, res)
-    {
+    async PostAceitarDeclaracao(req, res) {
         const dados = req.body;
         const id = dados.id;
         console.log(req.cookies.edvAdm)
@@ -52,9 +68,9 @@ module.exports = {
         await formulario.update({
             IdAdmConferiu: req.cookies.edvAdm,
         },
-        {
-            where: { IdTurma: id }
-        });
+            {
+                where: { ID: id }
+            });
         res.cookie('edvAdm', req.cookies.edvAdm);
         //erro de não poder realizar duas confirmações de formulário sem refazer o login (o login não esta sendo passado na url quando redireciona)
         res.redirect('/');
@@ -90,7 +106,7 @@ module.exports = {
         const administradores = await administrador.findAll({
             raw: true,
             attributes: ['EDV', 'Nome'],
-           
+
         });
 
         if (edvR) {
@@ -109,7 +125,8 @@ module.exports = {
             {
                 where: { EDV: edv }
             });
-
+        
+            
         res.render('../views/usuarios_adm', { administradores });
 
     },
@@ -133,8 +150,10 @@ module.exports = {
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
-    //direcionar para pagina de home adm master
+    // direcionar para pagina de home adm master
     async getPagHomeAdm(req, res) {
+        req.cookie('edvLogado', edv);
+        res.cookie('edvLogado', edv);
         res.render('../views/home_adm_master')
     },
 
@@ -166,6 +185,11 @@ module.exports = {
         })
         res.render('../views/usuarios_adm', { administradores })
     },
+
+    // ^^-----------------------------------------------------------------------------------------------------------------------------------------
+
+    //direcionar para pagina que vque gerencia turmas
+    
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -207,10 +231,12 @@ module.exports = {
                 raw: true,
                 attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
                 where: { ID: id }
-            })
+            });
+            res.cookie('edvLogado', edv);
             res.render('../views/declaracoes_adm', { turma, declaracoe, id });
         }
         else {
+            res.cookie('edvLogado', edv);
             res.render('home_adm_master', { edvLogado: edv });
         }
     }

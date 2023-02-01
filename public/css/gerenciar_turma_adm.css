@@ -1,93 +1,251 @@
+@media (min-width: 900px) {
 
-main{
-    display: flex;
-    flex-direction: column;
-}
+    .container,
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        margin: 0 2.5% 0 2%;
+    }
 
-button{
-    border: none;
-    background-color: gainsboro;
-}
+    main {
+        display: flex;
+        flex-direction: column;
+    }
 
-.create-class{
-    width: 90%;
-}
-.create-content{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-.create-content h5{
-    color: aliceblue;
-}
-.create-content img{
-    width: 2rem;
-    object-fit: contain;
-}
-.buttons-card{
-    margin-left: 4rem;
-}
-.buttons-card img{
-    width: 2rem;
-    margin-left: 1rem;
-}
-.buttons-card img:hover{
-    transition: 0.5s;
-    transform: scale(1.1);
-}
-.form-classes{
-    width: 90%;
-}
-.card{
-    margin-top: 1rem;
-}
-.card-body{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+    button {
+        border: none;
+        background-color: transparent;
+    }
 
-.overlay{
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    transition: opacity 500ms;
-} 
-.overlay:target{
-    opacity: 1;
-}
-.cabecalho{
-    display: flex;
-    justify-content:space-around ;
-}
-.wrapper{
-    width: 70%;
-    position: relative;
-    transition: all 5s ease-in-out;
-}
-.wrapper .close{
-    font-weight: bold;
-    text-decoration: none;
+
+    .create-class {
+        width: 55%;
+    }
+
+    .create-content {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .create-content h5 {
+        color: aliceblue;
+    }
+
+    .create-content img {
+        width: 2rem;
+        object-fit: contain;
+    }
+
+    .buttons-card {
+        margin-left: 4rem;
+    }
+
+    .buttons-card img {
+        width: 2rem;
+        margin-left: 1rem;
+    }
+
+    .buttons-card img:hover {
+        transition: 0.5s;
+        transform: scale(1.1);
+    }
+
+    .form-classes {
+        width: 55%;
+    }
+
+    .card {
+        margin-top: 1rem;
+        
+    }
+
+    .card-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .overlay {
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        transition: opacity 500ms;
+    }
+
+    .overlay:target {
+        opacity: 1;
+    }
+
+    .cabecalho {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .wrapper {
+        width: 70%;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+
+    .wrapper .close {
+        font-weight: bold;
+        text-decoration: none;
+
+    }
+
+    .editor {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-top: 0.3rem;
+    }
+
+    .buttons {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        background-color: aliceblue;
+    }
 
 }
-.editor{
-    display: flex;
-    flex-direction: column;
-}
-label{
-    margin-top: 0.3rem;
-}
-.buttons{
-    margin-top: 1rem;
-    display: flex;
-    justify-content: space-between;
-}
-.content{
-    display: flex;
-    flex-direction: column;
-}
-.container{
-    background-color: aliceblue;
+@media (max-width: 900px) {
+
+    .container,
+    .container-fluid,
+    .container-lg,
+    .container-md,
+    .container-sm,
+    .container-xl,
+    .container-xxl {
+        margin: 0 2.5% 0 2%;
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+    }
+
+    button {
+        border: none;
+        background-color: transparent;
+    }
+
+
+    .create-class {
+        width: 90%;
+    }
+
+    .create-content {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .create-content h5 {
+        color: aliceblue;
+    }
+
+    .create-content img {
+        width: 2rem;
+        object-fit: contain;
+    }
+
+    .buttons-card {
+        margin-left: 4rem;
+    }
+
+    .buttons-card img {
+        width: 2rem;
+        margin-left: 1rem;
+    }
+
+    .buttons-card img:hover {
+        transition: 0.5s;
+        transform: scale(1.1);
+    }
+
+    .form-classes {
+        width: 90%;
+    }
+
+    .card {
+        margin-top: 1rem;
+    }
+
+    .card-body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .overlay {
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        transition: opacity 500ms;
+    }
+
+    .overlay:target {
+        opacity: 1;
+    }
+
+    .cabecalho {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .wrapper {
+        width: 70%;
+        position: relative;
+        transition: all 5s ease-in-out;
+    }
+
+    .wrapper .close {
+        font-weight: bold;
+        text-decoration: none;
+
+    }
+
+    .editor {
+        display: flex;
+        flex-direction: column;
+    }
+
+    label {
+        margin-top: 0.3rem;
+    }
+
+    .buttons {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        background-color: aliceblue;
+    }
+
 }

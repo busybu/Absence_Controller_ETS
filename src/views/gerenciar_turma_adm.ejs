@@ -38,32 +38,29 @@
         </div>
 
         <div class="form-classes">
-    
-            
-                <% for(let i=0; i<turmas.length;i++) { %>
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="class-name">
-                                <h5>
-                                    <%=turmas[i].Nome%>
-                                </h5>
-                            </div>
-                            <div class="buttons-card">
-                                <form method="get" action="/editTurma/<%= turmas[i].ID %>" id="id">
-                                    <button type="submit" class="btn btn-primary">
-                                    </button>
-                                </form>
-                                <form method="post" action="/excluirTurma/<%= turmas[i].ID %>" id="id">
-                                    <button type="submit" class="btn btn-primary">
-                                    </button>
-                                </form>
-                                <img src="../img/delete.png" alt="">
-                            </div>
+
+            <% for(let i=0; i<turmas.length;i++) { %>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="class-name">
+                            <h5>
+                                <%=turmas[i].Nome%>
+                            </h5>
+                        </div>
+                        <div class="buttons-card">
+                            <form method="get" action="/editTurma/<%= turmas[i].ID %>" id="id">
+                                <button type="submit"> <img src="../img/more.png" alt="">
+                                </button>
+                            </form>
+                            <form method="post" action="/excluirTurma/<%= turmas[i].ID %>" id="id">
+                                <button type="submit"> <img src="../img/delete.png" alt="">
+                                </button>
+                            </form>
+                           
                         </div>
                     </div>
-                    <% } %>
-                        
-
+                </div>
+                <%}%>
         </div>
 
 

@@ -12,13 +12,10 @@ const route = express.Router();
 //^^------------------------------------------------------------------------------------------------------------------
 
 
-const turmas = require("./src/controllers/ControllerTurma");
-
 const ControllerHomeJustificativa = require("./src/controllers/ControllerJustificativa");
 const ControllerAdms = require("./src/controllers/ControllerAdms");
 const home = require("./src/controllers/home");
 const ControllerTurma = require("./src/controllers/ControllerTurma");
-// const editar = require('./src/controllers/editar')
 // Iniciando as rotas
 
 route.post('/createFormulario', multer(config).single('foto'), ControllerHomeJustificativa.postInsertJustificativa);
@@ -40,16 +37,14 @@ route.get('/gerenciar_usuarios', ControllerAdms.getUsuariosAp);
 route.post('/aceitaAdm', ControllerAdms.postAceiteAdm);
 
 route.get('/gerenciar_turmas', home.pagTurmasAdm);
-// route.post('/gerenciar_turma/:id', editar.adicionar);
+route.post('/gerenciar_turma/:id', editar.adicionar);
 
 route.post('/aceitarDeclaracao', ControllerAdms.PostAceitarDeclaracao);
-
 
 //verificar oq fazer
 route.get('/verificalogin', ControllerAdms.verificaLogin)
 
 //////////////////////////////////////////////////////////////////////
-
 
 route.get('/criar_turma', ControllerTurma.getCriarTurma);
 route.post('/createTurma', ControllerTurma.postInsertTurma);
@@ -58,9 +53,10 @@ route.post('/createTurma', ControllerTurma.postInsertTurma);
 route.get('/editTurma/:id', ControllerTurma.getEditTurma);
 route.post('/editTurmaP/:id', ControllerTurma.postEditTurma);
 
+route.get('/criar_turma', turmas.getCriarTurma);
+route.post('/createTurma', turmas.postInsertTurma);
 
-route.post('/excluirTurma/:id', ControllerTurma.apagarSala);
-
+// route.get('/gerenciar_turmas', ControllerAdms.);
 
 
 module.exports = route;
