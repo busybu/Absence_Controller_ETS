@@ -40,16 +40,20 @@
                             <% } %>  
                     </select>
                 </form>
-
-
                 <div class="space-select"></div>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected disabled>Situação</option>
-                    <option value="1">Pendente</option>
-                    <option value="2">Concluída</option>
-                    <option value="3">Rejeitada</option>
-                </select>
-    
+
+                <!-- <form action="declaracoes" method="post">
+                    <select id="situacao" onchange="this.form.submit()" name="situacao" class="form-select">
+                        <option value=''>Situação</option>
+                            <option value =''>Pendente
+                            </option>
+                            <option value =''>Concluída
+                            </option>
+                            <option value ='0'>Rejeitada
+                            </option>
+                    </select>
+                </form> -->
+                
             </div>
             
             <% for(let i = 0; i < declaracoe.length; i++) { %>
@@ -70,7 +74,7 @@
                              -->
                              <!-- aceitar declaracao -->
                              <form action="aceitarDeclaracao" method="post">
-                                <input type="submit" value="<%=edvLogado%>" name="edvLogado" disabled>
+                               
                                 <button type="submit" id="<%=declaracoe[i].ID%> " name="id">
                                     <img src="../img/check.png" alt="">
                                 </button>

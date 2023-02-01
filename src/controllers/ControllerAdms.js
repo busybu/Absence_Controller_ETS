@@ -1,3 +1,4 @@
+
 const administrador = require('../model/Administrador');
 const turmas = require('../model/Turma');
 const formulario = require('../model/formulario');
@@ -8,8 +9,11 @@ module.exports = {
 
     //acessar pagina declaracoes
     async getPagDeclaracoes(req, res) {
-        const edvLogado = req.body.edvLogado;
-        console.log(edvLogado)
+        
+        const dados = req.query;
+        console.log(dados)
+        const edvLogado = dados.edvLogado;
+        console.log('edvLogado: '+edvLogado)
         const turma = await turmas.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
@@ -18,24 +22,22 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
         });
-        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe, edvLogado });
+        res.cookie('edvAdm', edvLogado);
+        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe: '' });
     },
-
-
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     // acessar pag declaracoes conforme turma escolhida
     async postPagDeclaracoes(req, res) {
         //colocar o objeto que vc quer procurar
-        const id = req.body.turma;
+        const id = req.body.turma;  
         const declaracoe = await formulario.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-            where: { IdTurma: id }
+            where: { ID: id}
         })
         const turma = await turmas.findAll({ attributes: ['ID', 'Nome']})
-
 
         res.render('../views/declaracoes_adm', { turma, declaracoe, id })
     },
@@ -45,14 +47,17 @@ module.exports = {
     {
         const dados = req.body;
         const id = dados.id;
+        console.log(req.cookies.edvAdm)
         // Dando upgrade nas novas informações
         await formulario.update({
-            IdAdmConferiu: 2312,
+            IdAdmConferiu: req.cookies.edvAdm,
         },
         {
-            where: { ID: id }
+            where: { IdTurma: id }
         });
-        res.redirect('/declaracoes');
+        res.cookie('edvAdm', req.cookies.edvAdm);
+        //erro de não poder realizar duas confirmações de formulário sem refazer o login (o login não esta sendo passado na url quando redireciona)
+        res.redirect('/');
     },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -62,13 +67,16 @@ module.exports = {
         const administradores = await administrador.findAll({
             raw: true,
             attributes: ['EDV', 'Nome', 'Ativo'],
-        });
+        })
+        console.log(administradores)
 
-        res.render('../views/usuarios_adm', { administradores });
+        res.render('../views/usuarios_adm', { administradores })
     },
 
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
+
+
 
     //aceitar adm (liberar master ou nao)
     async postAceiteAdm(req, res) {
@@ -105,6 +113,8 @@ module.exports = {
         res.render('../views/usuarios_adm', { administradores });
 
     },
+
+    
 
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
