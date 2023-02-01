@@ -48,18 +48,17 @@
                         </div>
                         <div class="buttons-card">
                             <form method="get" action="/editTurma/<%= turmas[i].ID %>" id="id">
-                            <button type="submit" class="btn btn-primary" >
-                            </button>
-                        </form>
-                        <form action="/excluirSala/<%= turmas[i].ID %>" method="post">
-                            <button type="submit" class="btn btn-sala btn-outline-dark" value="Excluir"></button>
-                        </form>
-                            <img src="../img/delete.png" alt="">
+                                <button type="submit" class="btn btn-primary">
+                                </button>
+                            </form>
+                            <form method="post" action="/excluirTurma/<%= turmas[i].ID %>" id="id">
+                                <button type="submit" class="btn btn-primary">
+                                </button>
+                            </form>
+                            <% } %>
+
+
                         </div>
-                    </div>
-                </div>
-                <% } %>
-        </div>
 
 
     </main>

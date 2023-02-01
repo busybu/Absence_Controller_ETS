@@ -12,7 +12,12 @@ module.exports = {
             Inicio: dados.inicio,
             Fim: dados.fim
         });
-        res.redirect('../view/gerenciar_turma');
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio', 'Fim']
+        });
+
+        res.redirect('/gerenciar_turmas');
     },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
     //edit Turma
@@ -26,10 +31,15 @@ module.exports = {
             Inicio: dados.inicio,
             Fim: dados.fim
         },
-        {
-            where: { ID: id }
-        });
-        res.redirect('/');
+            {
+                where: { ID: id }
+            });
+
+        const turmas = await turma.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio', 'Fim']
+        })
+        res.redirect('/gerenciar_turmas');
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -48,20 +58,10 @@ module.exports = {
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
         res.render('../views/editarTurma', {turmas});
-    },
+    }
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
-    async postDeleteTurma(req,res){
-        
-        const id = req.params.id;
-
-        await turma.destroy(
-        {
-            where: { ID: id }
-        });
-        res.redirect('/');
-    }
 
 
 }
