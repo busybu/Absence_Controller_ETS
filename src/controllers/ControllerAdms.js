@@ -20,7 +20,7 @@ module.exports = {
         });
         const declaracoe = await formulario.findAll({
             raw: true,
-            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao','Arquivo','IdTurma'],
         });
         res.cookie('edvAdm', edvLogado);
         res.render('../views/declaracoes_adm', { turma, id: '', declaracoe });
@@ -32,27 +32,13 @@ module.exports = {
     async postPagDeclaracoes(req, res) {
         //colocar o objeto que vc quer procurar
         const id = req.body.turma;
-        if (declaracoe.IdAdmConferiu != '') {
-            const declaracoe = await formulario.findAll({
-                raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-                where: { IdTurma: id }
-            })
-            const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id });
-        }
-        else {
-            const declaracoe = await formulario.findAll({
-                raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
-                where: { IdTurma: id, }
-            })
-            const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] })
-
-
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id })
-
-        }
+        const declaracoe = await formulario.findAll({
+            raw: true,
+            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+            where: { IdTurma: id }
+        })
+        const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
+        res.render('../views/declaracoes_adm', { turma, declaracoe, id });
     },
 
     //aceitar declaracao
@@ -68,7 +54,7 @@ module.exports = {
             {
                 where: { ID: id },
             });
-       
+
         res.cookie('edvAdm', req.cookies.edvAdm);
         //erro de não poder realizar duas confirmações de formulário sem refazer o login (o login não esta sendo passado na url quando redireciona)
         res.redirect('/');
