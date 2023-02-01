@@ -20,7 +20,7 @@ module.exports = {
         });
         const declaracoe = await formulario.findAll({
             raw: true,
-            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao','Arquivo','IdTurma'],
+            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao','Arquivo','IdTurma', 'EDV'],
         });
         res.cookie('edvAdm', edvLogado);
         res.render('../views/declaracoes_adm', { turma, id: '', declaracoe });
