@@ -33,10 +33,10 @@
             <div class="title-card">Justificativa</div>
             <form action="/createFormulario" method="post" class="row g-3" enctype="multipart/form-data">
                 <div class="col-12" id="margin-extra">
-                    <input type="text" class="form-control" name="nome" placeholder="Insira seu nome" required>
+                    <input type="text" class="form-control" name="nome" placeholder="Insira seu nome" required style="border-radius: 1rem;">
                 </div>
                 <div class="col-12">
-                    <input type="text" class="form-control" name="edv" placeholder="EDV" required>
+                    <input type="text" class="form-control" name="edv" placeholder="EDV" required style="border-radius: 1rem;">
                 </div>
                 <div class="col-12">
 
@@ -68,22 +68,22 @@
                 </div>
                 <div class="col-12">
                     <input type="text" class="form-control campo-descricao" name="descricao"
-                        placeholder="Descreva o motivo da ausência" required>
+                        placeholder="Descreva o motivo da ausência" required style="border-radius:1rem ;"">
                 </div>
                 <label>Periodo</label>
                 <div class="col-12 periodo">
-                    <input type="date" class="form-control" name="inicio" style="margin-right: 0.5rem;">
-                    <input type="date" class="form-control" name="fim">
+                    <input type="date" class="form-control" name="inicio" style="margin-right: 0.5rem; border-radius:2rem ;">
+                    <input type="date" class="form-control" name="fim" style="border-radius:1rem ;">
                 </div>
                 <div class="col-12">
                     <span style="font-weight: 500;">Anexe: </span><span> Atestado/Declaração </span>
                     <p><span style="font-weight: 500;"> Caso seja necessário</span></p>
                     <div class="custom-file">
-                        <input type="file" class="form-control" id="flImage" name="foto" >
+                        <input type="file" class="form-control" id="flImage" name="foto" style="border-radius:1rem ;">
                     </div>
                 </div>
                 <div class="col-12">
-                        <input type="submit" class="btn btn-outline-dark button"></button>
+                        <input type="submit" class="btn btn-outline-dark button" style="border-radius:1rem ;"></button>
                     </div>
                 
             </form>
