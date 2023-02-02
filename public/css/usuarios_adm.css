@@ -145,15 +145,16 @@
 
     .card-body {
         display: flex;
-        justify-content: space-evenly;
         align-items: center;
         background-color: gainsboro;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+        height: 10rem;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .buttons-card {
-        margin-left: 3rem;
-        width: 40%;
+        width: 100%;
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;

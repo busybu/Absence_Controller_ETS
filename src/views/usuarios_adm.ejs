@@ -48,21 +48,36 @@
                                 </div>
 
                                 <div class="buttons-card">
-
                                     <h6>Ativo:</h6>
-
-                                    <% if (administradores[i].Ativo == 0) { %>
-                                        <button type="submit" name="edv" value="<%=administradores[i].EDV%>" >
+                                    <% if (administradores[i].Ativo==0) { %>
+                                        <button type="submit" name="edv" value="<%=administradores[i].EDV%>">
                                             <img src="/img/check.png">
                                         </button>
                                         <%} else { %>
-                                            <button type="submit" name="edv" value="<%=administradores[i].EDV%>" disabled>
+                                            <button type="submit" name="edv" value="<%=administradores[i].EDV%>"
+                                                disabled>
                                                 <img src="/img/checkPB.png">
                                             </button>
                                             <% } %>
                                                 <button type="submit" name="edvR" value="<%=administradores[i].EDV%>">
                                                     <img src="/img/delete.png">
                                                 </button>
+                                                <h3 style="margin:0 0.5rem ;"> | </h3>
+                                    <h6>Master:</h6>
+                                    <% if (administradores[i].Ativo==0) { %>
+                                        <button type="submit" name="edv" value="<%=administradores[i].EDV%>">
+                                            <img src="/img/check.png">
+                                        </button>
+                                        <%} else { %>
+                                            <button type="submit" name="edv" value="<%=administradores[i].EDV%>"
+                                                disabled>
+                                                <img src="/img/checkPB.png">
+                                            </button>
+                                            <% } %>
+                                                <button type="submit" name="edvR" value="<%=administradores[i].EDV%>">
+                                                    <img src="/img/delete.png">
+                                                </button>
+
                                 </div>
                             </div>
                             <% } %>
