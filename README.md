@@ -12,6 +12,6 @@
 - [ ]  Colocar informações do banco na área de editar turma/usuário (falta a data)
 - [X]  Confirmação de delete (turma) - Gabi 
 - [X]  Confirmação de delete popup do user e tirar master (usuário) - Gabi
-- [ ]  Regra de Negócio para não aceitar o input do dia do formulário antes do dia/horário que está sendo colocado
+- [X]  Regra de Negócio para não aceitar o input do dia do formulário antes do dia/horário que está sendo colocado - Manu
 - [ ]  PopUp de senha incorreta
 - [ ]  Colocar caminhos dos deletes dos botões na pág USUÁRIOS_ADM - Manu
