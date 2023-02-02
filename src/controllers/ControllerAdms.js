@@ -10,7 +10,7 @@ module.exports = {
     //acessar pagina declaracoes
     async getPagDeclaracoes(req, res) {
 
-        const dados = req.query;
+        const dados = req.cookies;
         console.log(dados)
         const edvLogado = dados.edvLogado;
         console.log('edvLogado: ' + edvLogado)
