@@ -78,8 +78,9 @@
                                                         </button>
                                                         <% } %>
                                                             <% if (administradores[i].Master==1) { %>
-                                                                <button type="submit" name="masterR"
-                                                                    value="<%=administradores[i].EDV%>">
+                                                                <button type="button" name="masterR"
+                                                                    data-bs-toggle="modal"
+                                                                    data-bs-target="#ModalDeleteMaster">
                                                                     <img src="/img/delete.png">
                                                                 </button>
                                                                 <%} else { %>
@@ -92,6 +93,7 @@
                                 </div>
                             </div>
                             <% } %>
+
                                 <div class="modal fade" id="exampleModal" tabindex="-1"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
@@ -114,9 +116,31 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="modal fade" id="ModalDeleteMaster" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Cancelar Master</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Você tirou a permissão Administrador MASTER para o usuário selecionado.
+                                            </div>
+                                            <div class="modal-footer">
+                                                <!-- FAZER ESTE BOTÃO ABAIXO DELETAR -->
+                                                <button type="submit" value="<%=administradores[i].EDV%>"
+                                                    class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <% } %>
                         </div>
-
             </form>
 
 

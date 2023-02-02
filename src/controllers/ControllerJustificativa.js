@@ -20,7 +20,8 @@ module.exports = {
             Inicio: dados.inicio,
             Fim: dados.fim,
             Descricao: dados.descricao,
-            Arquivo: foto
+            Arquivo: foto,
+            Status: 0
         });
         res.redirect('/');
     },
