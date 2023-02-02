@@ -48,7 +48,6 @@ route.get('/verificalogin', ControllerAdms.verificaLogin)
 route.get('/criar_turma', ControllerTurma.getCriarTurma);
 route.post('/createTurma', ControllerTurma.postInsertTurma);
 
-
 route.get('/editTurma/:id', ControllerTurma.getEditTurma);
 route.post('/editTurmaP/:id', ControllerTurma.postEditTurma);
 
