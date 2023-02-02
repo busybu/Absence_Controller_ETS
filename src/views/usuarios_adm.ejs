@@ -41,11 +41,11 @@
                                 <div class="foto-card">
                                     <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
                                 </div>
-                
-                                    <h5>
-                                        <%=administradores[i].Nome%>
-                                    </h5>
-                               
+
+                                <h5>
+                                    <%=administradores[i].Nome%>
+                                </h5>
+
 
                                 <div class="buttons-card">
                                     <h6>Ativo:</h6>
@@ -59,8 +59,9 @@
                                                 <img src="/img/checkPB.png">
                                             </button>
                                             <% } %>
-                                                <button type="submit" name="edvR" value="<%=administradores[i].EDV%>">
-                                                    <img src="/img/delete.png">
+                                                <button type="button" data-bs-toggle="modal"
+                                                    data-bs-target="#exampleModal">
+                                                    <img src="../img/delete.png" alt="">
                                                 </button>
                                                 <h4 style="margin: 0 0.5rem 0 0.39rem;"> | </h4>
                                                 <h6>Master:</h6>
@@ -76,24 +77,49 @@
                                                             <img src="/img/checkPB.png">
                                                         </button>
                                                         <% } %>
-                                                        <% if (administradores[i].Master==1) { %>
-                                                            <button type="submit" name="masterR"
-                                                                value="<%=administradores[i].EDV%>">
-                                                                <img src="/img/delete.png">
-                                                            </button>
-                                                            <%} else { %>
+                                                            <% if (administradores[i].Master==1) { %>
                                                                 <button type="submit" name="masterR"
-                                                                value="<%=administradores[i].EDV%>">
-                                                                <img src="/img/deletePB.png" disabled>
-                                                            </button>
-                                                            <% } %>
+                                                                    value="<%=administradores[i].EDV%>">
+                                                                    <img src="/img/delete.png">
+                                                                </button>
+                                                                <%} else { %>
+                                                                    <button type="submit" name="masterR"
+                                                                        value="<%=administradores[i].EDV%>">
+                                                                        <img src="/img/deletePB.png" disabled>
+                                                                    </button>
+                                                                    <% } %>
 
                                 </div>
                             </div>
                             <% } %>
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Apagar Usuário</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Tem certeza que deseja excluir o usuário permanentemente?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Cancelar</button>
+                                                <!-- FAZER ESTE BOTÃO ABAIXO DELETAR -->
+                                                <button type="submit" class="btn btn-danger"
+                                                    value="<%=administradores[i].EDV%>">Excluir</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <% } %>
                         </div>
+
             </form>
+
+
     </main>
     <div class="footer">
         <div class="container-fluid">
