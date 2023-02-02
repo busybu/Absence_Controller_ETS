@@ -42,6 +42,7 @@
 
     .buttons-card {
         margin-left: 4rem;
+        display: flex;
     }
 
     .buttons-card img {
