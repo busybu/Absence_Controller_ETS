@@ -32,7 +32,7 @@
     <main>
         <div class="form-declaracoes">
             <div class="selects">
-                <form action="declaracoes" method="post">
+                <form action="/declaracoes/" method="post">
                     <select id="turmas" onchange="this.form.submit()" name="turma" class="form-select">
                         <option value=''>Selecione uma turma</option>
                         <% for(let i=0; i < turma.length; i++) { %>
@@ -62,15 +62,9 @@
 
                 <div class="card" style="background: rgb(255, 243, 189);">
                     <div class="card-body">
-                        <div class="data-card">
-                            <h5>
-                                <%= declaracoe[i].Inicio %>
-                            </h5>
-                        </div>
                         <div class="nome-card">
-                            <h5>
-                                <%= declaracoe[i].Nome %>
-                            </h5>
+                            <%= declaracoe[i].Nome %> |
+                                <%= declaracoe[i].Inicio %>
                         </div>
                         <div class="buttons-card">
                             <!-- PÁGINA ABAIXO NÃO EXISTE AINDA  -->
@@ -81,87 +75,99 @@
                             <!-- aceitar declaracao -->
                             <form action="/aceitarDeclaracao/" method="post">
                                 <!-- value para funcionar -->
-                                <button type="submit" value="<%=declaracoe[i].ID%> " name="id">
-                                    <img src="../img/check.png" alt="aceitar declaração">
-                                </button>
-                                <!-- Button trigger modal -->
-                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%=declaracoe[i].ID%>">
-                                    <img src="../img/more.png" alt="visualizar declaração">
-                                </button>
-                            </form>
-                                <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop<%=declaracoe[i].ID%>" data-bs-backdrop="static"
-                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Visualizar
-                                                    Declaração</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="mb-3">
-                                                    <label for="nome-modal" class="form-label">
-                                                        Nome
-                                                    </label>
-                                                    <input type="text" id="nome-modal" class="form-control"
-                                                        placeholder="<%= declaracoe[i].Nome %>" disabled>
-                                                </div>
+                                <% if (declaracoe[i].IdAdmConferiu==null) { %>
+                                    <button type="submit" value="<%=declaracoe[i].ID%> " name="id">
+                                        <img src="../img/check.png" alt="aceitar declaração">
+                                    </button>
+                                    <% } %>
+                                        <form action="" method="post">
+                                            <!-- value para funcionar -->
+                                            <% if (declaracoe[i].IdAdmConferiu==null) { %>
+                                                <button type="submit" value="<%=declaracoe[i].ID%> " name="id">
+                                                    <img src="../img/delete.png" alt="aceitar declaração">
+                                                </button>
+                                                <% } %>
+                                                    <!-- Button trigger modal -->
+                                                    <button type="button" data-bs-toggle="modal"
+                                                       
+                                                        data-bs-target="#staticBackdrop<%=declaracoe[i].ID%>">
+                                                        <img src="../img/more.png" alt="visualizar declaração">
+                                                    </button>
+                                        </form>
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="staticBackdrop<%=declaracoe[i].ID%>" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Visualizar
+                                                            Declaração</h1>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="mb-3">
+                                                            <label for="nome-modal" class="form-label">
+                                                                Nome
+                                                            </label>
+                                                            <input type="text" id="nome-modal" class="form-control"
+                                                                placeholder="<%= declaracoe[i].Nome %>" disabled>
+                                                        </div>
 
-                                                <div class="mb-3">
-                                                    <label for="edv-modal" class="form-label">
-                                                        EDV
-                                                    </label>
-                                                    <input type="text" id="edv-modal" class="form-control"
-                                                        placeholder="<%= declaracoe[i].EDV %>" disabled>
-                                                </div>
+                                                        <div class="mb-3">
+                                                            <label for="edv-modal" class="form-label">
+                                                                EDV
+                                                            </label>
+                                                            <input type="text" id="edv-modal" class="form-control"
+                                                                placeholder="<%= declaracoe[i].EDV %>" disabled>
+                                                        </div>
 
-                                                <div class="mb-3">
-                                                    <label for="turma-modal" class="form-label">
-                                                        Turma
-                                                    </label>
-                                                    <select id="turma-modal" class="form-select" disabled>
-                                                        <option>
-                                                            <%= declaracoe[i].IdTurma %>
-                                                        </option>
-                                                    </select>
-                                                </div>
+                                                        <div class="mb-3">
+                                                            <label for="turma-modal" class="form-label">
+                                                                Turma
+                                                            </label>
+                                                            <select id="turma-modal" class="form-select" disabled>
+                                                                <option>
+                                                                    <%= declaracoe[i].IdTurma %>
+                                                                </option>
+                                                            </select>
+                                                        </div>
 
-                                                <div class="mb-3">
-                                                    <label for="descricao-modal" class="form-label">
-                                                        Descrição
-                                                    </label>
-                                                    <input type="text" id="descricao-modal" class="form-control"
-                                                        placeholder="<%= declaracoe[i].Descricao %>" rows="3" disabled>
-                                                </div>
+                                                        <div class="mb-3">
+                                                            <label for="descricao-modal" class="form-label">
+                                                                Descrição
+                                                            </label>
+                                                            <input type="text" id="descricao-modal" class="form-control"
+                                                                placeholder="<%= declaracoe[i].Descricao %>" rows="3"
+                                                                disabled>
+                                                        </div>
 
-                                                <div class="mb-3">
-                                                    <label for="dateIni-modal" class="form-label">
-                                                        Data inicial
-                                                    </label>
-                                                    <input type="text" id="dateIni-modal" class="form-control"
-                                                        placeholder="<%= declaracoe[i].Inicio%>" disabled>
-                                                </div>
+                                                        <div class="mb-3">
+                                                            <label for="dateIni-modal" class="form-label">
+                                                                Data inicial
+                                                            </label>
+                                                            <input type="text" id="dateIni-modal" class="form-control"
+                                                                placeholder="<%= declaracoe[i].Inicio%>" disabled>
+                                                        </div>
 
-                                                <div class="mb-3">
-                                                    <label for="dateEnd-modal" class="form-label">
-                                                        Data final
-                                                    </label>
-                                                    <input type="text" id="dateEnd-modal" class="form-control"
-                                                        placeholder="<%= declaracoe[i].Fim%>" disabled>
-                                                </div>
+                                                        <div class="mb-3">
+                                                            <label for="dateEnd-modal" class="form-label">
+                                                                Data final
+                                                            </label>
+                                                            <input type="text" id="dateEnd-modal" class="form-control"
+                                                                placeholder="<%= declaracoe[i].Fim%>" disabled>
+                                                        </div>
 
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-bs-dismiss="modal">Close</button>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            
+
                         </div>
                     </div>
                 </div>
