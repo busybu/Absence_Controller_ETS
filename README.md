@@ -2,7 +2,7 @@
 
 - [X]  Página que abre informações da justificativa com todos os dados- Gabi
 - [ ]  Filtro dos formulários pendentes
-- [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu (falta somente back bottao excluir)
+- [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu **(falta somente back bottao excluir)**
 - [X]  Bug de retornar com login do usuário - Manu
 - [X]  Testar aceitar atestado pelo adm normal - Gabi
 - [X]  Aparecer todos os usuários para adm master (excluir, editar, etc) - Manu

@@ -21,10 +21,9 @@ module.exports = {
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao', 'Arquivo', 'IdTurma', 'EDV'],
         });
 
-        const dataV = declaracoe.Inicio
 
         res.cookie('edvAdm', edvLogado);
-        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe });
+        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe});
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -58,7 +57,7 @@ module.exports = {
 
         res.cookie('edvAdm', req.cookies.edvAdm);
         //erro de não poder realizar duas confirmações de formulário sem refazer o login (o login não esta sendo passado na url quando redireciona)
-        res.redirect('/');
+        res.redirect('/declaracoes/');
     },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
