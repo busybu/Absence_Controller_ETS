@@ -11,9 +11,7 @@ module.exports = {
     async getPagDeclaracoes(req, res) {
 
         const dados = req.cookies;
-        console.log(dados)
         const edvLogado = dados.edvLogado;
-        console.log('edvLogado: ' + edvLogado)
         const turma = await turmas.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
@@ -22,6 +20,9 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao', 'Arquivo', 'IdTurma', 'EDV'],
         });
+
+        const dataV = declaracoe.Inicio
+
         res.cookie('edvAdm', edvLogado);
         res.render('../views/declaracoes_adm', { turma, id: '', declaracoe });
     },
@@ -141,14 +142,7 @@ module.exports = {
             res.cookie('edvLogado', edvLogado);
             res.redirect('/gerenciar_usuarios/');
         }
-
-        // const edvLogado = req.cookies.edvLogado;
-        // res.cookie('edvLogado', edvLogado);
-        // res.redirect('/gerenciar_usuarios/');
     },
-
-
-
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -204,7 +198,6 @@ module.exports = {
 
     //direcionar para pagina que vque gerencia turmas
 
-
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //verifica se o login é valido 
@@ -254,11 +247,6 @@ module.exports = {
     }
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
 
 
 }
