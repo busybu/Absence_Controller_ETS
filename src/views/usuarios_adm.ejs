@@ -77,6 +77,31 @@
                                                 <button type="submit" name="edvR" value="<%=administradores[i].EDV%>">
                                                     <img src="/img/delete.png">
                                                 </button>
+                                                <h4 style="margin: 0 0.5rem 0 0.39rem;"> | </h4>
+                                                <h6>Master:</h6>
+
+                                                <% if (administradores[i].Master==0) { %>
+                                                    <button type="submit" name="master"
+                                                        value="<%=administradores[i].EDV%>">
+                                                        <img src="/img/check.png">
+                                                    </button>
+                                                    <%} else { %>
+                                                        <button type="submit" name="master"
+                                                            value="<%=administradores[i].EDV%>" disabled>
+                                                            <img src="/img/checkPB.png">
+                                                        </button>
+                                                        <% } %>
+                                                        <% if (administradores[i].Master==1) { %>
+                                                            <button type="submit" name="masterR"
+                                                                value="<%=administradores[i].EDV%>">
+                                                                <img src="/img/delete.png">
+                                                            </button>
+                                                            <%} else { %>
+                                                                <button type="submit" name="masterR"
+                                                                value="<%=administradores[i].EDV%>">
+                                                                <img src="/img/deletePB.png" disabled>
+                                                            </button>
+                                                            <% } %>
 
                                 </div>
                             </div>
