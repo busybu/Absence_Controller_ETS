@@ -1,6 +1,6 @@
 # Pendências do Projeto Web
 
-- [ ]  Página que abre informações da justificativa de todos os usuários- Gabi
+- [X]  Página que abre informações da justificativa com todos os dados- Gabi
 - [ ]  Filtro dos formulários pendentes
 - [ ]  Shadow do botão para declarações se o adm conferiu ou não - Manu
 - [X]  Bug de retornar com login do usuário - Manu

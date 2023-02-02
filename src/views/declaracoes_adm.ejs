@@ -85,12 +85,12 @@
                                     <img src="../img/check.png" alt="aceitar declaração">
                                 </button>
                                 <!-- Button trigger modal -->
-                                <button type="button" data-bs-toggle="modal" id="<%=declaracoe[i].ID%>" onclick="passainfo(this.id)" data-bs-target="#staticBackdrop">
+                                <button type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop<%=declaracoe[i].ID%>">
                                     <img src="../img/more.png" alt="visualizar declaração">
                                 </button>
                             </form>
                                 <!-- Modal -->
-                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                <div class="modal fade" id="staticBackdrop<%=declaracoe[i].ID%>" data-bs-backdrop="static"
                                     data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
