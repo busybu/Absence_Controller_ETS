@@ -9,6 +9,9 @@ module.exports = {
         const dados = req.body;
         let foto = 'usuario.png';
 
+        const inicio = Date.parse(dados.inicio);
+        const fim = Date.parse(dados.fim);
+
         if (req.file) {
             foto = req.file.filename;
         }
@@ -29,8 +32,15 @@ module.exports = {
         const turmas = await turma.findAll({
             raw: true,
             attributes: ['ID', 'Nome']
-        })
-        res.render('../views/index', {turmas, id:''});
+        });
+
+        var formatter = new Intl.DateTimeFormat('pt-BR');
+        var date = new Date();
+        const dt = formatter.format(date).split('/');
+        console.log(dt);
+        var data = dt[2] + '-' + dt[1] + '-' + dt[0]
+
+        res.render('../views/index', { turmas, id: '', data });
     },
 
 }
