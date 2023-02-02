@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-12">
 
-                        <select id="turma" name="turma">
+                        <select id="turma" name="turma" required>
                             <option value=''>Selecione uma turma</option>
                                 <% for(let i = 0; i < turmas.length; i++) { %>
                                     <option value ='<%= turmas[i].ID %>' <%= id == turmas[i].ID ? 'selected' : '' %>>
@@ -51,7 +51,7 @@
 
                 </div>
                 <div class="col-12">
-                    <select name="motivo">
+                    <select name="motivo" required>
                         <option value="1">
                             Motivo
                         </option>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-12">
                     <input type="text" class="form-control campo-descricao" name="descricao"
-                        placeholder="Descreva o motivo da ausência">
+                        placeholder="Descreva o motivo da ausência" required>
                 </div>
                 <label>Periodo</label>
                 <div class="col-12 periodo">
