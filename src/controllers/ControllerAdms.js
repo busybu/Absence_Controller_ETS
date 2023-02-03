@@ -51,7 +51,7 @@ module.exports = {
         else {
             const declaracoe = await formulario.findAll({
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', "EDV"],
                 where: {
                     IdTurma: id
                 }

@@ -44,4 +44,5 @@ module.exports = {
         res.render('../views/index', { turmas, id: '', data });
     },
 
+    
 }
