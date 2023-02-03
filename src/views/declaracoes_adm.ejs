@@ -108,21 +108,24 @@
                                                                 Nome
                                                             </label>
                                                             <input type="text" id="descricao-modal" class="form-control"
-                                                                placeholder="<%= declaracoe[i].Descricao %>" rows="3"
+                                                                placeholder="<%= declaracoe[i].Nome %>"" rows="3"
                                                                 disabled>
-                                                                Nome: <%= declaracoe[i].Nome %>"
                                                         </div>
-
                                                         <div class="mb-3">
-                                                                EDV: <%= declaracoe[i].EDV %>
-                                                        </div>
+                                                        <label for="descricao-modal" class="form-label">
+                                                            EDV:
+                                                        </label>
+                                                        <input type="text" id="descricao-modal" class="form-control"
+                                                            placeholder="<%= declaracoe[i].EDV %>"" rows="3"
+                                                            disabled>
+                                                    </div>
                                                         <div class="mb-3">
                                                             <label for="turma-modal" class="form-label">
                                                                 Turma
                                                             </label>
                                                             <select id="turma-modal" class="form-select" disabled>
                                                                 <option>
-                                                                    <%= declaracoe[i].IdTurma %>
+                                                                    <%= turma[i].Nome %>
                                                                 </option>
                                                             </select>
                                                         </div>
