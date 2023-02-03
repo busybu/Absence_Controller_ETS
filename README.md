@@ -2,10 +2,10 @@
 
 - [X]  Página que abre informações da justificativa com todos os dados- Gabi
 - [ ]  Filtro dos formulários pendentes
-- [ ]  Post Recusar Declarações
+<!-- - [ ]  Post Recusar Declarações- Manu -->
 - [ ]  Ajustar texto do formulário (descrição) para aparecer
-- [ ]  Baixar PDF da foto da justificativa
-- [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu **(falta somente back bottao excluir)**
+- [ ]  Baixar PDF da foto da justificativa - Manu
+- [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu 
 - [X]  Bug de retornar com login do usuário - Manu
 - [X]  Testar aceitar atestado pelo adm normal - Gabi
 - [X]  Aparecer todos os usuários para adm master (excluir, editar, etc) - Manu
