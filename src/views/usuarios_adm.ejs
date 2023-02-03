@@ -33,111 +33,117 @@
             <hr>
         </div>
         <div class="form-usuarios">
-            <form action="/aceitaAdm/" method="post" class="row g-3">
-                <% for (let i=0; i<administradores.length;i++) {%>
-                    <% if (administradores[i].EDV !=edvLogado) { %>
-                        <div class="card">
-                            <div class="card-body">
-                                <div class="foto-card">
-                                    <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
-                                </div>
-                                <h5>
-                                    <%=administradores[i].Nome%>
-                                </h5>
-                                <div class="buttons-card">
-                                    <h6>Ativo:</h6>
-                                    <% if (administradores[i].Ativo==0) { %>
+            <% for (let i=0; i<administradores.length;i++) {%>
+                <% if (administradores[i].EDV !=edvLogado) { %>
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="foto-card">
+                                <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
+                            </div>
+                            <h5>
+                                <%=administradores[i].Nome%>
+                            </h5>
+                            <div class="buttons-card">
+                                <h6>Ativo:</h6>
+                                <% if (administradores[i].Ativo==0) { %>
+                                    <form action="/aceitaAdm/" method="post" class="row g-3">
                                         <button type="submit" name="edv" value="<%=administradores[i].EDV%>">
                                             <img src="/img/check.png">
                                         </button>
-                                        <%} else { %>
-                                            <button type="submit" name="edv" value="<%=administradores[i].EDV%>"
-                                                disabled>
-                                                <img src="/img/checkPB.png">
+                                    </form>
+                                    <%} else { %>
+                                        <button type="submit" name="edv" value="<%=administradores[i].EDV%>" disabled>
+                                            <img src="/img/checkPB.png">
+                                        </button>
+                                        <% } %>
+                                            <button type="button" data-bs-toggle="modal"
+                                                data-bs-target="#exampleModal<%=administradores[i].EDV%>">
+                                                <img src="../img/delete.png" alt="">
                                             </button>
-                                            <% } %>
-                                                <button type="button" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal">
-                                                    <img src="../img/delete.png" alt="">
-                                                </button>
-                                                <h4 style="margin: 0 0.5rem 0 0.39rem;"> | </h4>
-                                                <h6>Master:</h6>
 
-                                                <% if (administradores[i].Master==0) { %>
+                                            <h4 style="margin: 0 0.5rem 0 0.39rem;"> | </h4>
+                                            <h6>Master:</h6>
+
+                                            <% if (administradores[i].Master==0) { %>
+                                                <form action="/aceitaAdm/" method="post" class="row g-3">
                                                     <button type="submit" name="master"
                                                         value="<%=administradores[i].EDV%>">
                                                         <img src="/img/check.png">
                                                     </button>
-                                                    <%} else { %>
-                                                        <button type="submit" name="master"
-                                                            value="<%=administradores[i].EDV%>" disabled>
-                                                            <img src="/img/checkPB.png">
-                                                        </button>
-                                                        <% } %>
-                                                            <% if (administradores[i].Master==1) { %>
-                                                                <button type="button" name="masterR"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#ModalDeleteMaster">
-                                                                    <img src="/img/delete.png">
-                                                                </button>
-                                                                <%} else { %>
-                                                                    <button type="submit" name="masterR"
-                                                                        value="<%=administradores[i].EDV%>">
-                                                                        <img src="/img/deletePB.png" disabled>
-                                                                    </button>
-                                                                    <% } %>
+                                                </form>
 
+                                                <%} else { %>
+                                                    <button type="submit" name="master"
+                                                        value="<%=administradores[i].EDV%>" disabled>
+                                                        <img src="/img/checkPB.png">
+                                                    </button>
+                                                    <% } %>
+                                                        <% if (administradores[i].Master==1) { %>
+                                                            <button type="button" name="masterR" data-bs-toggle="modal"
+                                                                data-bs-target="#ModalDeleteMaster<%=administradores[i].EDV%>">
+                                                                <img src="/img/delete.png">
+                                                            </button>
+                                                            <%} else { %>
+                                                                <button type="submit" name="masterR"
+                                                                    value="<%=administradores[i].EDV%>">
+                                                                    <img src="/img/deletePB.png" disabled>
+                                                                </button>
+                                                                <% } %>
+
+                            </div>
+                        </div>
+                        <% } %>
+
+                            <div class="modal fade" id="exampleModal<%=administradores[i].EDV%>" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Apagar Usuário</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Tem certeza que deseja excluir o usuário permanentemente?
+                                        </div>
+                                        <div class="modal-footer" style=" align-items: flex-end;">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Cancelar</button>
+                                            <form action="/aceitaAdm/" method="post" class="row g-3">
+                                                <button type="submit" class="btn btn-danger" name="edvR"
+                                                    value="<%=administradores[i].EDV%>">Excluir</button>
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <% } %>
 
-                                <div class="modal fade" id="exampleModal" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Apagar Usuário</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Tem certeza que deseja excluir o usuário permanentemente?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Cancelar</button>
-                                                <button type="submit" class="btn btn-danger"
-                                                    value="<%=administradores[i].EDV%>" name="edvR">Excluir</button>
-                                            </div>
+                            <div class="modal fade" id="ModalDeleteMaster<%=administradores[i].EDV%>" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Cancelar Master</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                            </button>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="modal fade" id="ModalDeleteMaster" tabindex="-1"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Cancelar Master</h1>
-                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                    aria-label="Close"></button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Você tirou a permissão Administrador MASTER para o usuário selecionado.
-                                            </div>
-                                            <div class="modal-footer">
-                                            <form method="post" action="/aceiteAdm/<%= administradores[i].ID %>" id="id">
+                                        <div class="modal-body">
+                                            Você tirou a permissão Administrador MASTER para o usuário selecionado.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <form action="/aceitaAdm/" method="post" class="row g-3">
                                                 <button type="submit" value="<%=administradores[i].EDV%>"
-                                                    class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
-                                                
-                                            </div>
+                                                class="btn btn-secondary" data-bs-dismiss="modal" name="masterR">Ok</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <% } %>
-                        </div>
-            </form>
+                            <% } %>
+                    </div>
+                    </form>
 
 
     </main>
