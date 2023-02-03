@@ -5,7 +5,7 @@
 - [ ]  Post Recusar Declarações
 - [ ]  Ajustar texto do formulário (descrição) para aparecer
 - [ ]  Baixar PDF da foto da justificativa
-- [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu (falta somente back bottao excluir)
+- [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu **(falta somente back bottao excluir)**
 - [X]  Bug de retornar com login do usuário - Manu
 - [X]  Testar aceitar atestado pelo adm normal - Gabi
 - [X]  Aparecer todos os usuários para adm master (excluir, editar, etc) - Manu

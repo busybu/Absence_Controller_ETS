@@ -12,9 +12,7 @@ module.exports = {
     async getPagDeclaracoes(req, res) {
 
         const dados = req.cookies;
-        console.log(dados)
         const edvLogado = dados.edvLogado;
-        console.log('edvLogado: ' + edvLogado)
         const turma = await turmas.findAll({
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
@@ -23,6 +21,8 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao', 'Arquivo', 'IdTurma', 'EDV'],
         });
+
+
         res.cookie('edvAdm', edvLogado);
         res.render('../views/declaracoes_adm', { turma, id: '', declaracoe: '' });
     },
@@ -77,10 +77,10 @@ module.exports = {
             where: { ID: id },
         });
 
-    res.cookie('edvAdm', req.cookies.edvAdm);
-    //erro de não poder realizar duas confirmações de formulário sem refazer o login (o login não esta sendo passado na url quando redireciona)
-    res.redirect('/');
-},
+        res.cookie('edvAdm', req.cookies.edvAdm);
+        //erro de não poder realizar duas confirmações de formulário sem refazer o login (o login não esta sendo passado na url quando redireciona)
+        res.redirect('/');
+    },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //direcionar para pagina que verifica adm (aceita/edita adm)
@@ -139,35 +139,35 @@ module.exports = {
         res.redirect('/gerenciar_usuarios/');
     }
 
-    if (master) {
-        await administrador.update({
-            Master: 1,
-            Ativo: dados.ativo
-        },
-            {
-                where: { EDV: master }
-            });
-        const edvLogado = req.cookies.edvLogado;
-        res.cookie('edvLogado', edvLogado);
-        res.redirect('/gerenciar_usuarios/');
-    }
-    else if (masterR) {
-        await administrador.update({
-            Master: 0,
-            Ativo: dados.ativo
-        },
-            {
-                where: { EDV: masterR }
-            });
-        const edvLogado = req.cookies.edvLogado;
-        res.cookie('edvLogado', edvLogado);
-        res.redirect('/gerenciar_usuarios/');
-    }
+        if (master) {
+            await administrador.update({
+                Master: 1,
+                Ativo: dados.ativo
+            },
+                {
+                    where: { EDV: master }
+                });
+            const edvLogado = req.cookies.edvLogado;
+            res.cookie('edvLogado', edvLogado);
+            res.redirect('/gerenciar_usuarios/');
+        }
+        else if (masterR) {
+            await administrador.update({
+                Master: 0,
+                Ativo: dados.ativo
+            },
+                {
+                    where: { EDV: masterR }
+                });
+            const edvLogado = req.cookies.edvLogado;
+            res.cookie('edvLogado', edvLogado);
+            res.redirect('/gerenciar_usuarios/');
+        }
 
-    // const edvLogado = req.cookies.edvLogado;
-    // res.cookie('edvLogado', edvLogado);
-    // res.redirect('/gerenciar_usuarios/');
-},
+        // const edvLogado = req.cookies.edvLogado;
+        // res.cookie('edvLogado', edvLogado);
+        // res.redirect('/gerenciar_usuarios/');
+    },
 
 
 
@@ -226,7 +226,6 @@ module.exports = {
 
     //direcionar para pagina que vque gerencia turmas
 
-
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
     //verifica se o login é valido 
@@ -276,11 +275,6 @@ module.exports = {
 }
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
 
 
 }
