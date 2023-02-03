@@ -15,3 +15,5 @@
 - [X]  Regra de Negócio para não aceitar o input do dia do formulário antes do dia/horário que está sendo colocado - Manu
 - [ ]  PopUp de senha incorreta (falta resetar o alert)- Gabi
 - [ ]  Colocar caminhos dos deletes dos botões na pág USUÁRIOS_ADM - Manu
+- [ ]  Formatar data no front - Manu
+
