@@ -36,22 +36,22 @@
     </nav>
     <main>
         <div class="form-card">
-            <h4><%=turmas.Nome%></h4>
-            <div class="col-12">
-                <img class="card-img-top" src="../img/user.png">
-            </div>
+            <h4>Editar Turma</h4>
+
             <form action="/editTurmaP/<%= turmas.ID %>" method="post" class="row g-3">
                 <div class="col-12">
                     <input type="text" class="form-control" name="nome" placeholder="<%=turmas.Nome%>">
                 </div>
                 <label>Periodo</label>
                 <div class="col-12 periodo">
-                    <input type="date" class="form-control" name="inicio" style="margin-right: 0.5rem;">
-                    <input type="date" class="form-control" name="fim">
+                    <input placeholder="<%=turmas.Inicio%>" class="textbox-n" type="text" onfocus="(this.type='date')"  onblur="(this.type='text')" name="inicio"">
+                    <input placeholder="<%=turmas.Fim%>" class="textbox-n" type="text" onfocus="(this.type='date')"  onblur="(this.type='text')" name="fim"">
                 </div>
                 <div class="col-12">
                     <input type="submit" class="btn btn-outline-dark button" value="Editar" style="height: 125%;">
+                    <input type="submit" class="btn btn-outline-dark button" value="Voltar" style="height: 125%;">
                 </div>
+                    
             </form>
         </div>
     </main>
