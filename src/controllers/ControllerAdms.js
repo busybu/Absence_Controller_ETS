@@ -1,4 +1,4 @@
-
+var verificar = '';
 const administrador = require('../model/Administrador');
 const turmas = require('../model/Turma');
 const formulario = require('../model/formulario');
@@ -176,7 +176,8 @@ module.exports = {
 
     //direcionar para pagina login de adm
     async getPagLogin(req, res) {
-    res.render('../views/login-adm')
+    
+    res.render('../views/login-adm', {verificar})
 },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -232,23 +233,10 @@ module.exports = {
     async verificaLogin(req, res) {
 
     const dados = req.query;
+    console.log(dados)
     const edv = dados.edv;
     const senha = dados.senha;
-
     const user = await administrador.findOne({ where: { edv } });
-
-    if (user == null) {
-        return res.sendStatus(400);
-    }
-
-    if (user.Senha != senha) {
-        return res.sendStatus(400);
-    }
-
-    if (user.Ativo == 0) {
-        return res.sendStatus(400);
-    }
-
     const turma = await turmas.findAll({
         raw: true,
         attributes: ['ID', 'Nome', 'Inicio', 'Fim']
@@ -258,6 +246,11 @@ module.exports = {
         attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
     });
 
+    if (user == null || user.Senha != senha || user.Ativo == 0) {
+        verificar = '0'
+        return res.render('../views/login-adm',{ verificar })
+    }
+    
     if (user.Master == 0) {
         const id = user.EDV;
         const declaracoe = await formulario.findAll({
