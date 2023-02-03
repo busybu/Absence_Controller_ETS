@@ -1,7 +1,7 @@
 # Pendências do Projeto Web
 
 - [X]  Página que abre informações da justificativa com todos os dados- Gabi
-- [ ]  Filtro dos formulários pendentes - Gabi
+- [X]  Filtro dos formulários pendentes - Gabi
 - [ ]  Post Recusar Declarações
 - [ ]  Ajustar texto do formulário (descrição) para aparecer 
 - [ ]  Baixar PDF da foto da justificativa
