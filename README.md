@@ -15,3 +15,4 @@
 - [X]  Regra de Negócio para não aceitar o input do dia do formulário antes do dia/horário que está sendo colocado - Manu
 - [ ]  PopUp de senha incorreta
 - [ ]  Colocar caminhos dos deletes dos botões na pág USUÁRIOS_ADM - Manu
+- [ ]  Verificar se o edv ja existe na hora de realizar o regsitro 

@@ -41,12 +41,9 @@
                                 <div class="foto-card">
                                     <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png" alt="">
                                 </div>
-
                                 <h5>
                                     <%=administradores[i].Nome%>
                                 </h5>
-
-
                                 <div class="buttons-card">
                                     <h6>Ativo:</h6>
                                     <% if (administradores[i].Ativo==0) { %>
@@ -109,9 +106,8 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-bs-dismiss="modal">Cancelar</button>
-                                                <!-- FAZER ESTE BOTÃO ABAIXO DELETAR -->
                                                 <button type="submit" class="btn btn-danger"
-                                                    value="<%=administradores[i].EDV%>">Excluir</button>
+                                                    value="<%=administradores[i].EDV%>" name="edvR">Excluir</button>
                                             </div>
                                         </div>
                                     </div>
@@ -130,7 +126,7 @@
                                                 Você tirou a permissão Administrador MASTER para o usuário selecionado.
                                             </div>
                                             <div class="modal-footer">
-                                                <!-- FAZER ESTE BOTÃO ABAIXO DELETAR -->
+                                            <form method="post" action="/aceiteAdm/<%= administradores[i].ID %>" id="id">
                                                 <button type="submit" value="<%=administradores[i].EDV%>"
                                                     class="btn btn-secondary" data-bs-dismiss="modal">Ok</button>
                                                 
