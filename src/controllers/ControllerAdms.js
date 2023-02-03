@@ -35,34 +35,47 @@ module.exports = {
 
         const status = req.body.situacao;
         const id = req.body.turma;
-        // console.log(id)
-        // console.log(typeof id)
-        // console.log('')
-        // console.log(status)
-        // console.log(typeof status)
+
         if (status & id) {
-            console.log('3')
             const declaracoe = await formulario.findAll({
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
                 where: {
                     IdTurma: id,
                     Status: status
                 }
-            }
-            )
+            });
+            // const declaracaoDT = await formulario.findAll({
+            //     raw: true,
+            //     attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
+            // });
+            // console.log(declaracaoDT)
+            // const dt = declaracaoDT[0].fim
+            // console.log(dt)
+            // const dtF = dt.format('DD/MM/YYYY');
+            // console.log(dtF)
+            // console.log(dt)
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
             res.render('../views/declaracoes_adm', { turma, declaracoe, id, status });
         }
         else if (status) {
             const declaracoe = await formulario.findAll({
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
                 where: {
                     Status: status
                 }
-            }
-            )
+            });
+            // const declaracaoDT = await formulario.findAll({
+            //     raw: true,
+            //     attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
+            // });
+            // console.log(declaracaoDT)
+            // const dt = declaracaoDT[6]
+            // console.log(dt)
+            // const dtF = dt.format('DD/MM/YYYY');
+            // console.log(dtF)
+            // console.log(dt)
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
             res.render('../views/declaracoes_adm', { turma, declaracoe, id, status });
         }
@@ -70,23 +83,44 @@ module.exports = {
         else if (id) {
             const declaracoe = await formulario.findAll({
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
                 where: {
                     IdTurma: id
                 }
             })
+            // const declaracaoDT = await formulario.findAll({
+            //     raw: true,
+            //     attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
+            // });
+            // console.log(declaracaoDT)
+            // const dt = declaracaoDT[0].fim
+            // console.log(dt)
+            // const dtF = dt.format('DD/MM/YYYY');
+            // console.log(dtF)
+            // console.log(dt)
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
             res.render('../views/declaracoes_adm', { turma, declaracoe, id, status });
         }
 
-        else{
+        else {
             const declaracoe = await formulario.findAll({
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
             }
-            )
+            );
+
+            // const declaracaoDT = await formulario.findAll({
+            //     raw: true,
+            //     attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
+            // });
+            // console.log(declaracaoDT)
+            // const dt = declaracaoDT[0].fim
+            // console.log(dt)
+            // const dtF = dt.format('DD/MM/YYYY');
+            // console.log(dtF)
+            // console.log(dt)
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id : '', status: '' });
+            res.render('../views/declaracoes_adm', { turma, declaracoe, id: '', status: '' });
         }
     },
 

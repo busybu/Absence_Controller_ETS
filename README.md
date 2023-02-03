@@ -9,11 +9,14 @@
 - [X]  Bug de retornar com login do usuário - Manu
 - [X]  Testar aceitar atestado pelo adm normal - Gabi
 - [X]  Aparecer todos os usuários para adm master (excluir, editar, etc) - Manu
-- [X]  Colocar informações do banco na área de editar turma/usuário (falta a data) - Gabi
+- [X]  Colocar informações do banco na área de editar turma/usuário (falta a data) - Gabi - Gabi
 - [ ]  Arrumar o POST de editar turma no popup
 - [X]  Confirmação de delete (turma) - Gabi 
 - [X]  Confirmação de delete popup do user e tirar master (usuário) - Gabi
 - [X]  Regra de Negócio para não aceitar o input do dia do formulário antes do dia/horário que está sendo colocado - Manu
 - [X]  PopUp de senha incorreta -[ ](falta resetar o alert)- Gabi
-- [X]  PopUp de editar turma
+- [X]  PopUp de editar turma (falta resetar o alert)- Gabi
 - [ ]  Colocar caminhos dos deletes dos botões na pág USUÁRIOS_ADM - Manu
+
+- [ ]  Formatar data no front - Manu
+
