@@ -2,10 +2,10 @@
 
 - [X]  Página que abre informações da justificativa com todos os dados- Gabi
 - [X]  Filtro dos formulários pendentes - Gabi
-- [ ]  Post Recusar Declarações
+<!-- - [ ]  Post Recusar Declarações- Manu -->
 - [ ]  Ajustar texto do formulário (descrição) para aparecer 
-- [ ]  Baixar PDF da foto da justificativa
-- [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu **(falta somente back bottao excluir)**
+- [ ]  Baixar PDF da foto da justificativa - Manu
+- [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu 
 - [X]  Bug de retornar com login do usuário - Manu
 - [X]  Testar aceitar atestado pelo adm normal - Gabi
 - [X]  Aparecer todos os usuários para adm master (excluir, editar, etc) - Manu
@@ -13,5 +13,5 @@
 - [X]  Confirmação de delete (turma) - Gabi 
 - [X]  Confirmação de delete popup do user e tirar master (usuário) - Gabi
 - [X]  Regra de Negócio para não aceitar o input do dia do formulário antes do dia/horário que está sendo colocado - Manu
-- [X]  PopUp de senha incorreta - Gabi
+- [ ]  PopUp de senha incorreta
 - [ ]  Colocar caminhos dos deletes dos botões na pág USUÁRIOS_ADM - Manu
