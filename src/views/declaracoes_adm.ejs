@@ -34,24 +34,21 @@
             <div class="selects">
                 <form action="/declaracoes/" method="post">
                     <select id="turmas" onchange="this.form.submit()" name="turma" class="form-select">
-                        <option value=''>Selecione uma turma</option>
+                        <option value='-2'>Selecione uma turma</option>
                         <% for(let i=0; i < turma.length; i++) { %>
                             <option value='<%= turma[i].ID %>' <%=id==turma[i].ID ? 'selected' : '' %>>
                                 <%= turma[i].Nome %>
                             </option>
                             <% } %>
                     </select>
-                </form>
+
                 <div class="space-select"></div>
 
-                <form action="../declaracoes" method="post">
                     <select id="situacao" onchange="this.form.submit()" name="situacao" class="form-select">
-                        <option value=''>Situação</option>
-                        <option value='0'>Pendente
-                        </option>
-                        <option value='1'>Concluída
-                        </option>
-                        <option value='-1'>Rejeitada
+                        <option value='-2' <%= typeof status ==='undefined' || status == '-2' ? 'selected' : ''%>  >Situação</option>
+                        <option value='0' <%=  typeof status !=='undefined' ? (status == 0 ? 'selected' : '') : ''  %> >Pendente</option>
+                        <option value='1' <%= typeof status !=='undefined' ? (status == 1 ? 'selected' : '') : ''  %>>Concluída</option>
+                        <option value='-1' <%= typeof status !=='undefined' ? (status == -1 ? 'selected' : '') : ''  %>>Rejeitada
                         </option>
                     </select>
                 </form>

@@ -1,9 +1,9 @@
 # Pendências do Projeto Web
 
 - [X]  Página que abre informações da justificativa com todos os dados- Gabi
-- [ ]  Filtro dos formulários pendentes
+- [X]  Filtro dos formulários pendentes - Gabi
 <!-- - [ ]  Post Recusar Declarações- Manu -->
-- [ ]  Ajustar texto do formulário (descrição) para aparecer
+- [ ]  Ajustar texto do formulário (descrição) para aparecer 
 - [ ]  Baixar PDF da foto da justificativa - Manu
 - [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu 
 - [X]  Bug de retornar com login do usuário - Manu
@@ -14,5 +14,4 @@
 - [X]  Confirmação de delete popup do user e tirar master (usuário) - Gabi
 - [X]  Regra de Negócio para não aceitar o input do dia do formulário antes do dia/horário que está sendo colocado - Manu
 - [ ]  PopUp de senha incorreta
-- [X]  Colocar caminhos dos deletes dos botões na pág USUÁRIOS_ADM - Manu
-- [ ]  Verificar se o edv ja existe na hora de realizar o regsitro 
+- [ ]  Colocar caminhos dos deletes dos botões na pág USUÁRIOS_ADM - Manu
