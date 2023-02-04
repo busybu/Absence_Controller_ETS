@@ -7,7 +7,7 @@ module.exports = {
     async postInsertJustificativa(req, res) {
 
         const dados = req.body;
-        let foto = 'usuario.png';
+        let foto = '';
 
         const inicio = Date.parse(dados.inicio);
         const fim = Date.parse(dados.fim);

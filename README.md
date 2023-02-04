@@ -4,7 +4,7 @@
 - [X]  Filtro dos formulários pendentes - Gabi
 - [ ]  Post Recusar Declarações- Manu
 - [X]  Ajustar texto do formulário (descrição) para aparecer - Manu
-- [ ]  Baixar PDF da foto da justificativa - Manu
+- [x]  Baixar PDF da foto da justificativa - Manu
 - [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu 
 - [X]  Bug de retornar com login do usuário - Manu
 - [X]  Testar aceitar atestado pelo adm normal - Gabi
