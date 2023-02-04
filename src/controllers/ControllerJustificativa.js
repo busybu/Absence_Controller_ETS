@@ -23,6 +23,7 @@ module.exports = {
             Inicio: dados.inicio,
             Fim: dados.fim,
             Descricao: dados.descricao,
+            Motivo: dados.motivo,
             Arquivo: foto,
             Status: 0
         });

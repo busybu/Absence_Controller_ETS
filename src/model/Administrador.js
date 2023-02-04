@@ -1,6 +1,7 @@
-const { BOOLEAN } = require('sequelize');
+const { DATEONLY } = require('sequelize');
 const Sequelize = require('sequelize');
 const database = require('../config/db');
+
 
 //Craindo a tabela Turmas
 
