@@ -17,12 +17,18 @@ module.exports = {
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
         const declaracoe = await formulario.findAll({
+            order: [
+                ['Status', 'ASC'],
+            ],
             raw: true,
-            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao', 'Arquivo', 'IdTurma', 'EDV'],
+            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao', 'Arquivo', 'IdTurma', 'EDV', 'Status'],
+
         });
 
         res.cookie('edvAdm', edvLogado);
-        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe: '' });
+        const edvAdm = req.cookies.edvAdm;
+
+        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe, edvAdm });
     },
 
 
@@ -42,11 +48,16 @@ module.exports = {
 
         const status = req.body.situacao;
         const id = req.body.turma;
+        const edvAdm = req.cookies.edvAdm;
+
 
         if (status & id) {
             const declaracoe = await formulario.findAll({
+                order: [
+                    ['Status', 'ASC'],
+                ],
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo', 'Status'],
                 where: {
                     IdTurma: id,
                     Status: status
@@ -54,43 +65,60 @@ module.exports = {
             });
 
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id, status });
+            res.cookie('edvAdm', edvAdm);
+
+            res.render('../views/declaracoes_adm', { turma, declaracoe, id, status, edvAdm });
         }
         else if (status) {
             const declaracoe = await formulario.findAll({
+                order: [
+                    ['Status', 'ASC'],
+                ],
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo', 'Status'],
                 where: {
                     Status: status
                 }
             });
 
+            res.cookie('edvAdm', edvAdm);
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id, status });
+            res.render('../views/declaracoes_adm', { turma, declaracoe, id, status, edvAdm });
         }
 
         else if (id) {
             const declaracoe = await formulario.findAll({
+                order: [
+                    ['Status', 'ASC'],
+                ],
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo', 'Status'],
                 where: {
                     IdTurma: id
                 }
-            })
+            });
+            res.cookie('edvAdm', edvAdm);
 
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id, status });
+            res.render('../views/declaracoes_adm', {
+                turma, declaracoe, id, status, edvAdm
+            });
+
         }
 
         else {
             const declaracoe = await formulario.findAll({
+                order: [
+                    ['Status', 'ASC'],
+                ],
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo'],
-            }
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo','Status'],
+            },
             );
-
+            res.cookie('edvAdm', edvAdm);
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id: '', status: '' });
+            res.render('../views/declaracoes_adm', { turma, declaracoe, id: '', status: '', edvAdm });
+
         }
     },
 
@@ -99,18 +127,35 @@ module.exports = {
     async PostAceitarDeclaracao(req, res) {
         const dados = req.body;
         const id = dados.id;
-        // Dando upgrade nas novas informações
-        await formulario.update({
-            IdAdmConferiu: req.cookies.edvAdm,
-            Status: 1
-        },
-            {
-                where: { ID: id },
-            });
+        const idR = dados.idR;
 
-        res.cookie('edvAdm', req.cookies.edvAdm);
-        //erro de não poder realizar duas confirmações de formulário sem refazer o login (o login não esta sendo passado na url quando redireciona)
-        res.redirect('/');
+        // Dando upgrade nas novas informações
+        if (idR) {
+            await formulario.update({
+                IdAdmConferiu: req.cookies.edvAdm,
+                Status: 2
+            },
+                {
+                    where: { ID: idR },
+                });
+
+            res.cookie('edvAdm', req.cookies.edvAdm);
+            res.redirect('/declaracoes/');
+        }
+        else if (id) {
+            await formulario.update({
+                IdAdmConferiu: req.cookies.edvAdm,
+                Status: 1
+            },
+                {
+                    where: { ID: id },
+                });
+            res.cookie('edvAdm', req.cookies.edvAdm);
+            res.redirect('/declaracoes/');
+        }
+
+
+
     },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -279,8 +324,9 @@ module.exports = {
 
         if (user == null || user.Senha != senha || user.Ativo == 0) {
             verificar = '0'
-            return res.render('../views/login-adm', { verificar })
+            return res.render('../views/login-adm', { verificar });
         }
+
 
         if (user.Master == 0) {
             const id = user.EDV;

@@ -45,19 +45,18 @@
                 <div class="col-12">
                     <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha" required>
                 </div>
-                <!-- <div class="teste">
-                    <span style="color:#595959; font-weight: 500;" id="senha">Senha incorreta</span>
-                </div> -->
-                <% if(verificar == '0') { %> 
-                <div class="alert alert-danger" role="alert">
-                    Login ou Senha incorreta!
-                  </div>
-                <% } %> 
-                <div class="col-12">
-                    <input type="submit" class="btn btn-outline-dark button" value="Entrar">
-                </div>
+                <% if(verificar=='0' ) { %>
+                    <div class="modal fade">
+                        <div class="modal-body">
+                            Login ou Senha incorreta!
+                        </div>
+                    </div>
+                    <% } %>
+                        <div class="col-12">
+                            <input type="submit" class="btn btn-outline-dark button" value="Entrar">
+                        </div>
             </form>
-            
+
             <div class="col-12 link">
                 <a class="text-center p-t-136" href="cadastro">Registre-se</a>
             </div>
