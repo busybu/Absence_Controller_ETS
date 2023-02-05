@@ -2,7 +2,7 @@
 
 - [X]  Página que abre informações da justificativa com todos os dados- Gabi
 - [X]  Filtro dos formulários pendentes - Gabi
-- [ ]  Post Recusar Declarações- Manu
+- [X]  Post Recusar Declarações- Manu
 - [X]  Ajustar texto do formulário (descrição) para aparecer - Manu
 - [x]  Baixar PDF da foto da justificativa - Manu
 - [X]  Shadow do botão para declarações se o adm conferiu ou não - Manu 
@@ -16,7 +16,7 @@
 - [X]  Regra de Negócio para não aceitar o input do dia do formulário antes do dia/horário que está sendo colocado - Manu
 - [X]  PopUp de senha incorreta -[ ](falta resetar o alert)- Gabi
 - [X]  PopUp de editar turma (falta resetar o alert)- Gabi
-- [ ]  Colocar caminhos dos deletes dos botões na pág USUÁRIOS_ADM - Manu
+- [X]  Colocar caminhos dos deletes dos botões na pág USUÁRIOS_ADM - Manu
 - [ ]  Formatar data no front - Manu
 
 
