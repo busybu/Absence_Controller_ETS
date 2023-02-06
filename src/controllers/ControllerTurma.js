@@ -1,6 +1,4 @@
 const turma = require('../model/Turma');
-const date = require('date-format');
-const { format } = require('date-and-time');
 
 
 module.exports = {
