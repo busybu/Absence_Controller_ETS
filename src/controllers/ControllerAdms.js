@@ -253,7 +253,7 @@ module.exports = {
     //direcionar para pagina login de adm
     async getPagLogin(req, res) {
 
-        res.render('../views/login-adm', { verificar })
+        res.render('../views/login-adm', { verificar: ''})
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -325,9 +325,9 @@ module.exports = {
         if (user == null || user.Senha != senha || user.Ativo == 0) {
             verificar = '0'
             return res.render('../views/login-adm', { verificar });
+            
         }
-
-
+        verificar = ''
         if (user.Master == 0) {
             const id = user.EDV;
             const declaracoe = await formulario.findAll({
