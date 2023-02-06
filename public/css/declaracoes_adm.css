@@ -15,7 +15,7 @@
         padding: 1rem;
         width: 55%;
     }
-
+ 
     .navbar-nav img {
         width: 2.5rem;
     }
@@ -46,10 +46,10 @@
         margin-right: 0.1rem;
     }
 
-    .selects {
+    #selects {
         display: flex;
         width: 100%;
-        justify-content: space-between;
+        flex-direction:column;
     }
 
     button {
@@ -75,7 +75,8 @@
 
     .form-declaracoes {
         margin-top: 1.5rem;
-        padding: 1rem;
+        padding: 0.5rem;
+        width: 90%;
     }
 
     .navbar-nav img {
@@ -111,9 +112,10 @@
         margin-right: 0.1rem;
     }
 
-    .selects {
+    #selects {
         display: flex;
         width: 100%;
+        flex-direction:column;
     }
 
     button {

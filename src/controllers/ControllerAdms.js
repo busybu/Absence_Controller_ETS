@@ -2,7 +2,6 @@ var verificar = '';
 const administrador = require('../model/Administrador');
 const turmas = require('../model/Turma');
 const formulario = require('../model/formulario');
-const seq = require('sequelize')
 //Cadastrar Adm
 
 
@@ -18,14 +17,28 @@ module.exports = {
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
         const declaracoe = await formulario.findAll({
+            order: [
+                ['Status', 'ASC'],
+            ],
             raw: true,
-            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao', 'Arquivo', 'IdTurma', 'EDV'],
+            attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'Fim', 'Descricao', 'Arquivo', 'IdTurma', 'EDV', 'Status'],
+
         });
 
-
         res.cookie('edvAdm', edvLogado);
-        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe: '' });
+        const edvAdm = req.cookies.edvAdm;
+
+        res.render('../views/declaracoes_adm', { turma, id: '', declaracoe, edvAdm });
     },
+
+
+    async download(req, res) {
+        const caminhoFOTO = req.query.arq;
+        var path = require('path');
+        var file = path.join(__dirname, '../../public/img/' + caminhoFOTO);
+        res.download(file)
+    },
+
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -35,92 +48,77 @@ module.exports = {
 
         const status = req.body.situacao;
         const id = req.body.turma;
+        const edvAdm = req.cookies.edvAdm;
+
 
         if (status & id) {
             const declaracoe = await formulario.findAll({
+                order: [
+                    ['Status', 'ASC'],
+                ],
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo', 'Status'],
                 where: {
                     IdTurma: id,
                     Status: status
                 }
             });
-            // const declaracaoDT = await formulario.findAll({
-            //     raw: true,
-            //     attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
-            // });
-            // console.log(declaracaoDT)
-            // const dt = declaracaoDT[0].fim
-            // console.log(dt)
-            // const dtF = dt.format('DD/MM/YYYY');
-            // console.log(dtF)
-            // console.log(dt)
+
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id, status });
+            res.cookie('edvAdm', edvAdm);
+
+            res.render('../views/declaracoes_adm', { turma, declaracoe, id, status, edvAdm });
         }
         else if (status) {
             const declaracoe = await formulario.findAll({
+                order: [
+                    ['Status', 'ASC'],
+                ],
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo', 'Status'],
                 where: {
                     Status: status
                 }
             });
-            // const declaracaoDT = await formulario.findAll({
-            //     raw: true,
-            //     attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
-            // });
-            // console.log(declaracaoDT)
-            // const dt = declaracaoDT[6]
-            // console.log(dt)
-            // const dtF = dt.format('DD/MM/YYYY');
-            // console.log(dtF)
-            // console.log(dt)
+
+            res.cookie('edvAdm', edvAdm);
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id, status });
+            res.render('../views/declaracoes_adm', { turma, declaracoe, id, status, edvAdm });
         }
 
         else if (id) {
             const declaracoe = await formulario.findAll({
+                order: [
+                    ['Status', 'ASC'],
+                ],
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo', 'Status'],
                 where: {
                     IdTurma: id
                 }
-            })
-            // const declaracaoDT = await formulario.findAll({
-            //     raw: true,
-            //     attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
-            // });
-            // console.log(declaracaoDT)
-            // const dt = declaracaoDT[0].fim
-            // console.log(dt)
-            // const dtF = dt.format('DD/MM/YYYY');
-            // console.log(dtF)
-            // console.log(dt)
+            });
+            res.cookie('edvAdm', edvAdm);
+
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id, status });
+            res.render('../views/declaracoes_adm', {
+                turma, declaracoe, id, status, edvAdm
+            });
+
         }
 
         else {
             const declaracoe = await formulario.findAll({
+                order: [
+                    ['Status', 'ASC'],
+                ],
                 raw: true,
-                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
-            }
+                attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao', 'Arquivo','Status'],
+            },
             );
-
-            // const declaracaoDT = await formulario.findAll({
-            //     raw: true,
-            //     attributes: ['ID', 'Nome', 'Inicio', 'IdAdmConferiu', 'EDV', 'IdTurma', 'Fim', 'Descricao'],
-            // });
-            // console.log(declaracaoDT)
-            // const dt = declaracaoDT[0].fim
-            // console.log(dt)
-            // const dtF = dt.format('DD/MM/YYYY');
-            // console.log(dtF)
-            // console.log(dt)
+            res.cookie('edvAdm', edvAdm);
             const turma = await turmas.findAll({ attributes: ['ID', 'Nome'] });
-            res.render('../views/declaracoes_adm', { turma, declaracoe, id: '', status: '' });
+            res.render('../views/declaracoes_adm', { turma, declaracoe, id: '', status: '', edvAdm });
+
         }
     },
 
@@ -129,20 +127,35 @@ module.exports = {
     async PostAceitarDeclaracao(req, res) {
         const dados = req.body;
         const id = dados.id;
-        console.log(dados)
-        console.log(req.cookies.edvAdm)
-        // Dando upgrade nas novas informações
-        await formulario.update({
-            IdAdmConferiu: req.cookies.edvAdm,
-            Status: 1
-        },
-            {
-                where: { ID: id },
-            });
+        const idR = dados.idR;
 
-        res.cookie('edvAdm', req.cookies.edvAdm);
-        //erro de não poder realizar duas confirmações de formulário sem refazer o login (o login não esta sendo passado na url quando redireciona)
-        res.redirect('/');
+        // Dando upgrade nas novas informações
+        if (idR) {
+            await formulario.update({
+                IdAdmConferiu: req.cookies.edvAdm,
+                Status: 2
+            },
+                {
+                    where: { ID: idR },
+                });
+
+            res.cookie('edvAdm', req.cookies.edvAdm);
+            res.redirect('/declaracoes/');
+        }
+        else if (id) {
+            await formulario.update({
+                IdAdmConferiu: req.cookies.edvAdm,
+                Status: 1
+            },
+                {
+                    where: { ID: id },
+                });
+            res.cookie('edvAdm', req.cookies.edvAdm);
+            res.redirect('/declaracoes/');
+        }
+
+
+
     },
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -311,7 +324,7 @@ module.exports = {
 
         if (user == null || user.Senha != senha || user.Ativo == 0) {
             verificar = '0'
-            return res.render('../views/login-adm', { verificar })
+            return res.render('../views/login-adm', { verificar });
             
         }
         verificar = ''

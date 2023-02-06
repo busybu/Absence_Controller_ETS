@@ -1,5 +1,6 @@
 const turma = require('../model/Turma');
 
+
 module.exports = {
 
     //Cria uma turma nova no banco de dados
@@ -26,20 +27,39 @@ module.exports = {
         const dados = req.body;
         const id = req.params.id;
 
-        await turma.update({
-            Nome: dados.nome,
-            Inicio: dados.inicio,
-            Fim: dados.fim
-        },
-            {
-                where: { ID: id }
-            });
+        if (dados.nome == '' || dados.inicio == '' || dados.fim == '') {
+            const turmas = await turma.findOne({ where: { id } });
+            if (dados.nome == '') {
+                nome = turmas.Nome;
+            }
+            else {
+                nome = dados.nome;
 
-        const turmas = await turma.findAll({
-            raw: true,
-            attributes: ['ID', 'Nome', 'Inicio', 'Fim']
-        })
-        res.redirect('/gerenciar_turmas');
+            }
+            if (dados.inicio == '') {
+                inicio = turmas.Inicio;
+            }
+            else {
+                inicio = new Date(dados.inicio);
+            }
+            if (dados.fim == '') {
+                fim = turmas.Fim
+            }
+            else {
+                fim = new Date(dados.fim);
+            }
+
+            await turma.update({
+                Nome: nome,
+                Inicio: inicio,
+                Fim: fim
+            },
+                {
+                    where: { ID: id }
+                });
+
+            return res.redirect('/gerenciar_turmas');
+        }
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------
@@ -59,8 +79,8 @@ module.exports = {
             raw: true,
             attributes: ['ID', 'Nome', 'Inicio', 'Fim']
         });
-        
-        res.render('../views/editarTurma', {turmas});
+
+        res.render('../views/editarTurma', { turmas });
     },
 
     // ^^-----------------------------------------------------------------------------------------------------------------------------------------

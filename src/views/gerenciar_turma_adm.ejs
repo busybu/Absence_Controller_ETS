@@ -53,61 +53,64 @@
                             </button>
 
 
-                            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal<%=turmas[i].ID%>">
+                            <button type="button" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal<%=turmas[i].ID%>">
                                 <img src="../img/delete.png" alt="">
                             </button>
                         </div>
 
-                            <div class="modal fade" id="exampleModal<%=turmas[i].ID%>" tabindex="-1"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Apagar Turma</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Tem certeza que deseja excluir a turma permanentemente?
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-bs-dismiss="modal">Cancelar</button>
+                        <div class="modal fade" id="exampleModal<%=turmas[i].ID%>" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Apagar Turma</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Tem certeza que deseja excluir a turma permanentemente?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancelar</button>
 
-                                            <form method="post" action="/excluirTurma/<%= turmas[i].ID %>" id="id">
-                                                <button type="submit" class="btn btn-danger">Excluir</button>
-                                            </form>
+                                        <form method="post" action="/excluirTurma/<%= turmas[i].ID %>" id="id">
+                                            <button type="submit" class="btn btn-danger">Excluir</button>
+                                        </form>
 
-                                        </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
 
-                            <div class="modal fade" id="staticBackdrop<%=turmas[i].ID%>" data-bs-backdrop="static"
-                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Turma</h1>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                                aria-label="Close"></button>
-                                        </div>
+                        <div class="modal fade" id="staticBackdrop<%=turmas[i].ID%>" data-bs-backdrop="static"
+                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Turma</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <<form method="post" action="/editTurmaP/<%= turmas[i].ID %>" id="id">
                                         <div class="modal-body">
                                             <div class="mb-3">
                                                 <label for="nome-modal" class="form-label">
                                                     Nome
                                                 </label>
                                                 <input type="text" id="nome-modal" class="form-control"
-                                                    placeholder="<%= turmas[i].Nome %>">
+                                                    placeholder="<%= turmas[i].Nome %>" name="nome">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="dateIni-modal" class="form-label">
                                                     Data inicial
                                                 </label>
-                                                <input placeholder="<%=turmas[i].Inicio%>" class="form-control" type="text" onfocus="(this.type='date')"  onblur="(this.type='text')" name="inicio"">
-
+                                                <input placeholder="<%=turmas[i].Inicio%>" class="form-control"
+                                                    type="text" onfocus="(this.type='date')" onblur="(this.type='text')"
+                                                    name="inicio">
                                             </div>
 
                                             <div class=" mb-3">
@@ -121,23 +124,19 @@
 
                                         </div>
                                         <div class="modal-footer">
-                                            <form action="/editTurmaP/<%= turmas.ID %>" method="post">
-                                                <input type="submit" class="btn btn-primary"
-                                                data-bs-dismiss="modal">
-                                            </form>
-                                            
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-bs-dismiss="modal">Close
-                                                </button>
-                                        </div>
-                                    </div>
+                                            <input type="submit" class="btn btn-primary" data-bs-dismiss="modal">
+                                    </form>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    </button>
                                 </div>
                             </div>
-                            
-                            </div>
                         </div>
-                    <%}%>
+                    </div>
+
                 </div>
+        </div>
+        <%}%>
+            </div>
     </main>
 
     <div class="footer">
