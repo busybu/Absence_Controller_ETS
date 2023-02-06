@@ -22,8 +22,8 @@ module.exports = {
             IdTurma: dados.turma,
             Inicio: dados.inicio,
             Fim: dados.fim,
-            Descricao: dados.descricao,
             Motivo: dados.motivo,
+            Descricao: dados.descricao,
             Arquivo: foto,
             Status: 0
         });
